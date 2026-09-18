@@ -1,0 +1,380 @@
+{
+  "source": "SerialSpeechSynthesizerSAM/source/SSSSAM/wizard_phrases.cpp",
+  "phrases": [
+    {
+      "id": 1,
+      "text": "A few more dungeons and you'll be a worlord.",
+      "phonemes": "AH1 F E1 U U M O R D UH N J EH1 N S PA1 AH1 N D Y IU I1_U I1_L B E E1 PA0 A A2 W I1_O I1_R L O R D PA1"
+    },
+    {
+      "id": 2,
+      "text": "Ah good, my pets where getting hungry. ha ha ha ha.",
+      "phonemes": "I1_AH AH2 PA0 I1_G I1_IU I1_IU IU IU D PA1 M AH1 I3 Y P I1_EH T S W ER R G EH T I NG H I1_UH I1_NG G R Y PA1 PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 3,
+      "text": "Ah you thought you could but I'm the dungeon master. Ha ha ha ha.",
+      "phonemes": "I2_PA0 AH AH1 PA1 Y IU U TH AW T Y IU U K OO D H AH1 I2 Y1 D PA1 B UH T AH1 EH3 I3 Y M PA1 PA1 THV UH D UH N J EH1 N M AE S T ER PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 4,
+      "text": "And my teleporting spell can be even faster. Ha ha ha ha.",
+      "phonemes": "I2_PA0 AE N D PA0 M AH1 I1 Y1 T EH1 L EH1 P O R T I1 NG S P EH L PA0 K AE1 N B E PA0 PA0 E1 V EH N F AE S T ER PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 5,
+      "text": "Another coin for my treasure chest.",
+      "phonemes": "AH1 N UH TH ER PA0 K O1 O2 I3 Y1 N F O R M I1_AH1 I1_I3 I1_Y1 T R EH1 ZH ER T CH EH S T PA1"
+    },
+    {
+      "id": 6,
+      "text": "Another worrior for my babies to devour.",
+      "phonemes": "AH1 N UH1 THV ER PA0 W O R Y ER F O1 R M AH1 I3 Y1 B A Y B Y1 Y S T U D E V AH1 O2 U1 R PA1"
+    },
+    {
+      "id": 7,
+      "text": "Are you fit to survive the pit. Ha ha ha ha.",
+      "phonemes": "I2_PA0 AH R PA0 PA0 Y1 IU U PA0 I2_PA0 F I T PA0 PA0 T U PA0 I2_PA0 S ER V AH2 I2 Y1 V PA0 PA0 THV UH PA0 I2_PA0 P I T PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 8,
+      "text": "Be forewarned, you approach the pit. Ha ha ha ha.",
+      "phonemes": "I2_PA0 B E1 E F O R W O1 O R N D PA1 Y IU U U1 PA1 UH1 P R O O1 T CH PA1 THV UH P I T PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 9,
+      "text": "Bite the bullet worlord. Ha ha ha ha.",
+      "phonemes": "I2_PA0 B UH3 AH1 Y T THV UH B O1 O1 L T PA1 I2_PA0 I2_PA0 W I1_O I1_R L O R D PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 10,
+      "text": "Bite the bullet worrior. Ha ha ha ha.",
+      "phonemes": "I2_PA0 B UH3 AH1 Y T THV UH B O1 O1 L T PA1 I2_PA0 W O R Y ER PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 11,
+      "text": "Burwor hasn't eatin anyone in months. ha ha ha ha.",
+      "phonemes": "I2_PA0 B ER R W O R H AE S N T E T EH1 N EH N Y W UH N PA0 I1 N M UH N TH S PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 12,
+      "text": "Burwor, Garwor, and Thorwor, will do you in.",
+      "phonemes": "I2_PA0 B I1_ER I1_R W O R PA1 G I1_AH1 I1_R W O R PA1 AE1 EH3 N D TH I1_O I1_R W O R PA1 W I L D IU I1_U Y1 IU U I N PA1 I2_PA0"
+    },
+    {
+      "id": 13,
+      "text": "Burwor, you are in the worlord dungeons.",
+      "phonemes": "I2_PA0 B Y W EH R PA1 Y IU U AH1 R I N THV UH W O R L O R D PA0 D UH N J EH1 N Z PA1 I2_PA0"
+    },
+    {
+      "id": 14,
+      "text": "Come back for more, with, The Wizard of Wor. ha ha ha ha.",
+      "phonemes": "K AH1 M B AE K F O R M O O1 R PA1 PA1 W I TH PA1 THV I1_UH W I1_I Z ER D I1_UH I1_V PA0 I1_W O O1 R R PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 15,
+      "text": "Deep in the caverns of wor you will meet me worrior.",
+      "phonemes": "I2_PA0 D I1_E E1 P I N THV UH PA0 K AE V ER N S PA0 UH V W I1_O I1_O1 R R PA1 PA1 Y1 IU U U1 W I L M I1_E I1_E1 T PA0 M E E1 PA0 I2_PA0 W O R Y ER PA1"
+    },
+    {
+      "id": 16,
+      "text": "Deeper ever deeper in to the dungeons of wor. Ha ha ha ha.",
+      "phonemes": "I2_PA0 D E1 E P ER PA1 EH V ER D E1 E P ER PA1 I N T U PA1 I2_PA0 I2_PA0 THV UH PA0 D UH N J EH1 N Z UH V W O O1 R R PA1 I2_PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 17,
+      "text": "Fear, I draw near, each time I appear. ha ha ha ha.",
+      "phonemes": "W O R Y ER F AY I2 R PA1 AH1 EH3 I3 Y D R AW N AY I2 R PA1 E1 T CH T AH1 I3 Y1 M AH1 EH3 I3 Y UH1 P I1_AY I1_I3 R PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 18,
+      "text": "Find me, The Wizard of Wor.",
+      "phonemes": "F I1_AH1 I1_I3 I1_Y N D M E E1 PA1 PA1 THV I1_UH W I1_I Z ER D I1_UH I1_V PA0 I1_W O O1 R R PA1"
+    },
+    {
+      "id": 19,
+      "text": "Garwor and Thorwor become invisible. ha ha ha ha.",
+      "phonemes": "G AH1 R W O R AE1 EH3 N D TH O R W O R PA1 B Y K UH M PA1 I2_PA1 I N V I1_I1 I1_Z I1 B L PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 20,
+      "text": "Garwor, go after them.",
+      "phonemes": "I2_PA0 G I1_AH1 R W O1 R PA1 G O1 O1 I1_AE1 EH3 F T ER THV EH M PA1 I2_PA0"
+    },
+    {
+      "id": 21,
+      "text": "Get ready, worrior.",
+      "phonemes": "G EH T R EH D Y PA1 W O R Y ER PA1"
+    },
+    {
+      "id": 22,
+      "text": "Hay, Your space boots untied. Ha ha ha ha.",
+      "phonemes": "H I1_A I1_I1 I1_Y1 PA1 PA1 Y O2 O2 R S P A2 AY Y S PA0 B U U1 T S PA0 UH N T AH1 I2 Y1 D PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 23,
+      "text": "He he he ho ho ho ha ha ha ha, that was fun.",
+      "phonemes": "H I1_E H I1_E H I1_E H O H O H O H AH1 H AH1 H AH1 H AH1 PA1 THV I1_AE EH3 T PA0 PA0 W UH Z F UH N PA1"
+    },
+    {
+      "id": 24,
+      "text": "Hey, insert coin.",
+      "phonemes": "H I1_A I1_I1 I1_Y1 PA1 PA1 I N S I1_ER I1_T PA1 I1_K I1_O1 O2 I3 Y1 N PA1"
+    },
+    {
+      "id": 25,
+      "text": "Hurry back, I can't wait to do it again.",
+      "phonemes": "H I1_ER I1_R Y B AE1 EH3 K PA1 PA1 AH1 EH3 I3 Y K AE1 EH3 N T W I1_A2 I1_AY Y T T IU U1 D I1_IU U I T UH1 G I1_A1 I1_EH1 N PA1"
+    },
+    {
+      "id": 26,
+      "text": "I am The Wizord of Wor.",
+      "phonemes": "AH1 UH3 I3 Y AE1 EH3 M PA1 PA1 THV I1_UH W I1_I Z ER D I1_UH I1_V PA0 I1_W O O1 R R PA1"
+    },
+    {
+      "id": 27,
+      "text": "I'll fray you with my lightning bolts.",
+      "phonemes": "I2_PA0 AH1 EH3 I3 Y L F R AH1 I1_EH3 I1_EH3 I1_Y Y1 I3 U1 W I1 TH M AH1 EH3 I3 Y L UH3 I1_AH2 I1_Y T N I NG B O L T S PA1 I2_PA0"
+    },
+    {
+      "id": 28,
+      "text": "I'm out'a spite. ha ha ha ha.",
+      "phonemes": "AH1 I1_I3 I1_Y M PA0 AH2 O1 U1 D AH1 PA0 S P AH2 I1_I1 I1_Y T PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 29,
+      "text": "If you can't beat the rest, then you'll never get the best. Ha ha ha ha.",
+      "phonemes": "I1_I1 I1_F Y I3 U1 K AE1 EH3 N T PA1 B I1_E1 T THV UH1 R EH S T PA1 I2_THV I1_EH1 N Y IU U1 L N EH1 V ER PA1 G I1_EH1 T THV UH1 B EH S T PA0 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 30,
+      "text": "If you destroy my babies, I'll pop you in the oven. ha ha ha ha.",
+      "phonemes": "I2_PA0 I F Y I3 U D E1 S T R O1 UH3 I3 AY M AH2 AH2 EH3 I3 Y B I1_A B Y Y1 S PA1 AH1 I3 Y1 L P I1_AH1 P Y IU U I1 N THV AY AY UH V EH N PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 31,
+      "text": "If you get too powerful, I'll take care of you myself. ha ha ha ha.",
+      "phonemes": "I F Y1 I3 IU U G EH EH3 T T U U1 P AH1 W ER F UH1 L PA1 I2_PA0 AH1 EH3 I3 Y L T A K K EH R UH1 V Y1 IU U PA0 M AH1 I3 Y S EH L F PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 32,
+      "text": "If you try any harder, you'll only meet with doom. ha ha ha ha.",
+      "phonemes": "I F Y IU U T R AH1 EH3 I3 Y I1_AE1 N Y H I1_AH1 I1_R D ER PA1 I2_PA0 Y1 IU U L I1_O1 N L Y M E E1 T W I TH I1_D U U M PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 33,
+      "text": "Keep going, and you will find me.",
+      "phonemes": "K I1_E P PA0 G O I1 Y1 NG PA0 AE N D Y IU U W I L F I1_AH1 I1 Y1 N D M E E1 PA1"
+    },
+    {
+      "id": 34,
+      "text": "Kill Worluk for double score.",
+      "phonemes": "I2_PA0 K I I3 L PA0 W O O1 R L UH K PA0 F O1 R D UH B UH3 L S K O O1 R PA1 I2_PA0"
+    },
+    {
+      "id": 35,
+      "text": "My babies breath fire, worrior.",
+      "phonemes": "M AH1 I3 Y B I1_A B Y Y1 S PA0 B R E1 Y TH F I1_AH1 EH3 AY R PA1 W O R Y ER PA1"
+    },
+    {
+      "id": 36,
+      "text": "My beasts run wild in the worlord dungeons. Ha ha ha ha.",
+      "phonemes": "I2_PA0 M AH1 EH3 I3 Y1 B E E1 S T S PA0 R UH N W AH1 I2 Y1 L D PA1 I N THV UH W O R L O R D PA1 D UH N J EH1 N Z PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 37,
+      "text": "My creatures are radioactive.",
+      "phonemes": "M AH1 EH3 I3 Y K R E1 T CH ER S AH UH3 R R A2 D Y O1 U1 AE1 EH3 K T I1 V PA1"
+    },
+    {
+      "id": 38,
+      "text": "My magic is stronger then your weapons, worlod.",
+      "phonemes": "M AH1 I1_EH3 I1_I3 I1_Y M I1_AE1 D J I1 K I Z S T R I1_AW N G R THV AE1 EH3 N Y O2 O2 R W I1_EH I1_P UH1 N S PA1 I2_PA0 W I1_O I1_R L O R D PA1 I2_PA0"
+    },
+    {
+      "id": 39,
+      "text": "My magic is stronger then your weapons, worrior.",
+      "phonemes": "M AH1 I1_EH3 I1_I3 I1_Y M I1_AE1 D J I1 K I Z S T R I1_AW N G R THV AE1 EH3 N Y O2 O2 R W I1_EH I1_P UH1 N S PA1 W O R Y ER PA1"
+    },
+    {
+      "id": 40,
+      "text": "My worlings are very very hungry. Ha ha ha ha.",
+      "phonemes": "I2_PA0 M AH1 EH3 I3 Y W I1_O I1_R L I NG S AH1 UH3 R V I1_EH I1_EH3 R Y V I1_EH I1_EH3 R Y H I1_UH N G R Y PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 41,
+      "text": "Now you get the heavyweights.",
+      "phonemes": "I2_PA0 N AH1 I1_UH3 I1_U1 Y1 IU U1 U1 G EH T PA0 TH UH1 PA0 I1_H I1_EH1 I1_I3 V E1 W I1_A1 I3 Y1 T S PA1 I2_PA0"
+    },
+    {
+      "id": 42,
+      "text": "Now you know the tast of my magic, worrior.",
+      "phonemes": "I2_PA0 N I1_AH1 UH3 U1 Y IU U1 U1 N O O THV UH T A A1 S T PA0 UH1 V M AH1 I2 Y1 M AE1 EH3 D J I1 K PA0 I2_PA0 W O R Y ER PA1"
+    },
+    {
+      "id": 43,
+      "text": "Now your only chance is your dance. Ha ha ha ha.",
+      "phonemes": "N AH1 I1_UH3 I1_U1 Y O2 O2 R O N L Y T CH AE N S I1 S Y O2 O2 R D AE N S PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 44,
+      "text": "One bite from my pretties, and you'll explode. Ha ha ha ha.",
+      "phonemes": "W UH N B UH3 AH2 Y T F R UH M M AH1 I3 Y1 P R I T Y Y1 S PA1 PA1 AE1 EH3 N D Y1 IU U L EH K PA0 S P L O U1 D PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 45,
+      "text": "Oops, I must have forgotten the walls. Ha ha ha ha.",
+      "phonemes": "U P S PA1 PA1 AH1 UH3 I3 Y M UH S T H AE1 V F O R G AH1 T EH1 N THV UH W AW L S PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 46,
+      "text": "Remember, I'm the wizard, not you!",
+      "phonemes": "I2_PA0 R E1 M I1_EH M B ER PA1 I1_AH1 EH3 I3 Y M THV UH W I Z ER D PA1 N AH1 T Y IU U1 U1 PA1 I2_PA0"
+    },
+    {
+      "id": 47,
+      "text": "Say it again, Woryer fear, I draw neer, each time I apear. Ha ha ha ha.",
+      "phonemes": "AH1 EH3 I3 Y L S A Y1 I T UH G A2 EH2 N PA1 W O R Y ER F AY I2 R PA1 AH1 EH3 I3 Y D R AW N AY I2 R PA1 E1 T CH T AH1 I3 Y1 M AH1 EH3 I3 Y UH1 P I1_AY I1_I3 R PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 48,
+      "text": "So you've come to score in the world of wor. Ha ha ha ha.",
+      "phonemes": "S I1_O Y IU U1 V K I1_UH I1_M T U1 S K O O1 R PA1 I1 N THV UH1 W O1 I1_ER L D UH V W I1_O O1 R PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 49,
+      "text": "The dungeons of wor await your return, worrior.",
+      "phonemes": "I2_PA0 THV UH D I1_UH I1_N J EH N S PA0 UH V PA0 W O O1 R R AH1 W I1_A2 I1_AY Y T PA0 Y O O1 R R I3 E1 T I1_ER R N PA1 I2_PA0 W O R Y ER PA1"
+    },
+    {
+      "id": 50,
+      "text": "The Wizard of Wor thanks you.",
+      "phonemes": "PA1 THV I1_UH W I1_I Z ER D I1_UH I1_V PA0 I1_W O O1 R R PA1 PA1 TH TH AE1 EH3 NG K S PA0 Y IU U U1 PA1"
+    },
+    {
+      "id": 51,
+      "text": "Thor, Bur, Gar dinner's ready. Ha ha ha ha.",
+      "phonemes": "I2_PA0 TH O O1 R PA0 B ER R PA0 G AH R PA1 D I1_I I1_N ER S PA0 R I1_EH I3 D Y PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 52,
+      "text": "Thorwor is red mean and hungry for spice food.",
+      "phonemes": "I2_PA0 TH O R W O R PA1 I Z R EH D PA1 M E1 AY N PA1 AE1 EH3 N D H I1_UH I1_NG G R Y F O R S P A2 I3 Y S F U1 U1 D PA1 I2_PA0"
+    },
+    {
+      "id": 53,
+      "text": "Wasn't that lightning bolt delicious? Ha ha ha ha.",
+      "phonemes": "W UH S N T THV AE1 T L UH3 I1_AH2 I1_Y T N I NG B O L T PA0 D E L I1 SH UH1 S PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 54,
+      "text": "Watch the radar, worrior.",
+      "phonemes": "I2_PA0 W AH1 T CH THV UH R A D AH1 R PA0 I2_PA0 W O R Y ER PA1"
+    },
+    {
+      "id": 55,
+      "text": "Welcome, to my world of wor.",
+      "phonemes": "W I1_EH L K UH M PA1 T U1 M AH1 I1 Y W O1 I1_ER I1_L D UH V W O O1 R PA1"
+    },
+    {
+      "id": 56,
+      "text": "Were are you going to hide now. Ha ha ha ha.",
+      "phonemes": "I2_PA0 W AE1 ER AH1 R Y1 IU U G O I1 NG T U H AH1 I2 Y1 D PA0 N AH1 UH3 U PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 57,
+      "text": "Worlock will escape through the door.",
+      "phonemes": "W O R L UH K PA0 W I L PA0 EH S PA0 K A2 I3 Y1 P PA0 THV R U THV UH D O O1 R PA1"
+    },
+    {
+      "id": 58,
+      "text": "Worlord maybe you'll see me again.",
+      "phonemes": "I2_PA0 W I1_O I1_R L O R D PA1 I2_PA0 M A Y B E Y IU U1 L S E E1 M E1 E PA0 UH G A2 EH2 N PA1"
+    },
+    {
+      "id": 59,
+      "text": "Worlord, while you developed science, we developed magic.",
+      "phonemes": "I2_PA0 W I1_O I1_R L O R D PA1 I2_PA0 W AH1 EH3 I3 L Y1 I1_IU I1_U D E1 V EH1 L UH3 P T S AH1 I3 AY EH N S PA1 W E1 Y D E1 V EH1 L UH3 P T M AE1 EH3 D J I1 K PA1"
+    },
+    {
+      "id": 60,
+      "text": "Worlord, You won't have a chance for your dance. Ha ha ha ha.",
+      "phonemes": "I2_PA0 W I1_O I1_R L O R D PA1 I2_PA0 Y1 IU U W O1 N T H I1_AE1 I2 V PA0 A2 T CH I1_AE N S PA0 F O2 R Y O1 R D I1_AE N S PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 61,
+      "text": "Worlord, Your path leads directly to the pit. Ha ha ha ha.",
+      "phonemes": "I2_PA0 W I1_O I1_R L O R D PA1 I2_PA0 I2_PA0 Y O2 O2 R P AE TH PA0 L E D S PA0 D ER EH1 K T L Y1 PA0 T U U1 PA1 PA1 THV UH P I T PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 62,
+      "text": "Worrior, now I'm getting mad.",
+      "phonemes": "I2_W O R Y ER PA1 I2_PA0 I2_PA0 N I1_AH1 UH3 U1 AH1 EH3 I3 Y M G EH T I NG M AE EH3 D PA1 I2_PA0"
+    },
+    {
+      "id": 63,
+      "text": "Worrior, while you developed science, we developed magic.",
+      "phonemes": "I2_W O R Y ER PA1 I2_PA0 W AH1 EH3 I3 L Y1 I1_IU I1_U D E1 V EH1 L UH3 P T S AH1 I3 AY EH N S PA1 W E1 Y D E1 V EH1 L UH3 P T M AE1 EH3 D J I1 K PA1"
+    },
+    {
+      "id": 64,
+      "text": "You are in, the dungeons of wor.",
+      "phonemes": "I2_PA0 Y1 IU U UH R I N PA1 I2_PA0 I2_PA0 THV UH PA0 D UH N J EH1 N Z UH V W O O1 R R PA1 I2_PA1"
+    },
+    {
+      "id": 65,
+      "text": "You can start anew, but for now you're through.",
+      "phonemes": "Y1 IU U K AE1 EH3 N S T I1_AH1 R T AH1 N I1_IU U1 W PA1 I2_PA1 B UH T F O1 R N AH1 I1_UH3 I1_U1 Y O2 O2 R TH R I1_U1 U1 PA1 I2_PA1"
+    },
+    {
+      "id": 66,
+      "text": "You know you can do better, worlord.",
+      "phonemes": "I2_PA0 Y1 IU U N I1_O1 I1_O1 O1 Y1 IU U K AE1 EH3 N D IU U B I1_EH T ER PA1 I2_PA0 I2_PA0 W I1_O I1_R L O R D PA1 I2_PA0"
+    },
+    {
+      "id": 67,
+      "text": "You know you can do better, worrior.",
+      "phonemes": "I2_PA0 Y1 IU U N I1_O1 I1_O1 O1 Y1 IU U K AE1 EH3 N D IU U B I1_EH T ER PA1 I2_PA0 W O R Y ER PA1"
+    },
+    {
+      "id": 68,
+      "text": "You will never leave wor alive. ha ha ha ha.",
+      "phonemes": "I2_PA0 Y1 IU U W I L N I1_EH V ER L E1 E1 V W I1_O I1_O1 R UH1 L I1_AH1 EH3 Y V PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 69,
+      "text": "You'd better hope you don't find me, The Wizard of Wor.",
+      "phonemes": "Y1 IU U D PA0 B I1_EH1 T ER PA0 H O P Y1 I1_IU I1_U D O N T I1_F I1_AH1 I3 Y1 N D I1_M E E1 PA1 PA1 PA1 PA1 THV I1_UH W I1_I Z ER D I1_UH I1_V PA0 I1_W O O1 R R PA1"
+    },
+    {
+      "id": 70,
+      "text": "You'll get the arena. Ha ha ha ha.",
+      "phonemes": "I2_PA0 Y1 IU U L G EH T PA1 PA1 THV E PA0 I1_AH2 R E N AH1 PA1 I2_PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 71,
+      "text": "You're asking for trouble, worrior.",
+      "phonemes": "I2_PA0 Y O2 O2 R I1_AE1 EH3 I1_S I1_K I NG F O R T R I1_UH I1_B UH3 L PA1 I2_PA0 W O R Y ER PA1"
+    },
+    {
+      "id": 72,
+      "text": "You're off to see the wizord, the magical Wizord of Wor. ha ha ha ha.",
+      "phonemes": "Y O2 O2 R AW F T IU U1 I2_S E1 Y THV UH I2_W I Z ER D PA1 THV UH M AE1 EH3 D J I1 K UH1 L I2_W I Z ER D I2_UH V W O1 O2 R PA1 PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 73,
+      "text": "You've just been frayed by the Wizard of Wor. Ha ha ha ha.",
+      "phonemes": "Y IU U1 V PA0 J UH S T B EH N F R AH1 I1 Y1 D PA1 B AH1 I2 Y1 PA1 THV I1_UH W I1_I Z ER D I1_UH I1_V PA0 I1_W O O1 R R PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 74,
+      "text": "Your bones will lie in the dungeons of wor. ha ha ha ha.",
+      "phonemes": "I2_PA0 Y O2 O2 R I1_B O O2 I1_N S W I L PA0 L AH1 EH3 Y I N THV UH D I1_UH N J EH1 N S UH V W O O1 R R PA1 I2_PA0 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    },
+    {
+      "id": 75,
+      "text": "Your explosion was music to my ears. Ha ha ha ha.",
+      "phonemes": "Y1 O2 O2 R EH1 K I1_S P L I1_O ZH UH N PA0 W UH1 S M I1_Y1 I1_U S I K T U M AH1 I3 Y1 PA0 E1 ER R S PA1 PA1 H I1_AH1 H I1_AH1 H AH1 H AH1 PA1"
+    }
+  ]
+}
