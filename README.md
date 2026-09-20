@@ -48,6 +48,21 @@ python tools/build_user_guide.py
 
 ## Build and upload
 
+On Windows, double-click [`build_and_flash.bat`](build_and_flash.bat) to build
+and flash **COM3**. The window stays open to show the result. From a terminal:
+
+```bat
+build_and_flash.bat COM3
+build_and_flash.bat COM7
+build_and_flash.bat --build-only
+```
+
+Use the board's USB-to-UART port, and close the serial console first. The script
+finds PlatformIO in its usual VS Code installation or on PATH, builds the
+`esp32dev` environment, and uploads only if the build succeeds. It works from
+any current directory. Flashing resets the board and clears learned RAM phrases;
+run the Wizard loader again if needed. `--build-only` leaves the board alone.
+
 Open this folder in VS Code with PlatformIO, or run:
 
 ```sh
