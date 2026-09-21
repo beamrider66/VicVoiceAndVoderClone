@@ -430,7 +430,9 @@ reset detection, old firmware rejection and selection of individual phrases.
 
 The SAM voice generator, voice controls, compatibility audio wrapper,
 ESP8266 targets, built-in Wizard of Wor playback, GPIO audio and unused filesystem /
-network settings were removed. English conversion retains only the inherited
-SAM-derived **spelling rules and matcher**, now standalone with bounded output;
+network settings were removed. English conversion uses a standalone,
+malloc-free **text-to-phoneme converter** built on the public-domain NRL
+letter-to-sound rules plus a small exact-word override table and the
+NRL/Votrax IPA-to-SC-01 mapping (with number expansion) and bounded output;
 there is no SAM voice library or SAM audio synthesis. See
 [`THIRD_PARTY.md`](THIRD_PARTY.md) for provenance.

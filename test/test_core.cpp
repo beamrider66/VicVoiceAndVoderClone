@@ -14,16 +14,16 @@
 static void testEnglish() {
   char phones[votrax::SC01_TEXT_BUFFER_SIZE];
   assert(votrax::textToSc01("HELLO WORLD", phones, sizeof(phones)));
-  assert(std::string(phones) == "H EH L O1 W ER L D");
+  assert(std::string(phones) == "H EH1 UH3 L UH3 O1 U1 PA0 W UH3 ER L D");
   assert(votrax::textToSc01("hello world", phones, sizeof(phones)));
-  assert(std::string(phones) == "H EH L O1 W ER L D");
+  assert(std::string(phones) == "H EH1 UH3 L UH3 O1 U1 PA0 W UH3 ER L D");
 
   std::string input, expected;
   for (int i = 0; i < 40; ++i) {
     input += "HELLO ";
     if (i)
-      expected += ' ';
-    expected += "H EH L O1";
+      expected += " PA0 ";
+    expected += "H EH1 UH3 L UH3 O1 U1";
   }
   assert(votrax::textToSc01(input.c_str(), phones, sizeof(phones)));
   assert(phones == expected); // Regression: original reciter truncated long lines.
@@ -41,7 +41,7 @@ static void testEnglish() {
   assert(!votrax::textToSc01(nullptr, phones, sizeof(phones)));
   assert(!votrax::textToSc01(std::string(254, 'A').c_str(), phones, sizeof(phones)));
   assert(votrax::textToSc01("HELLO[WORLD", phones, sizeof(phones)));
-  assert(std::string(phones) == "H EH L O1 W ER L D");
+  assert(std::string(phones) == "H EH1 UH3 L UH3 O1 U1 PA0 W UH3 ER L D");
 }
 
 static void testCompactPhones() {
@@ -142,11 +142,19 @@ static void testPhraseBank() {
   assert(!get(0) && !get(1) && !get(config::phraseSlotCount + 1));
   assert(learn(1, Format::Text, "HELLO WORLD") == Error::None);
   const Slot original = *get(1);
-  assert(original.count == 8);
+  assert(original.count == 13);
   assert(learn(1, Format::Phonemes, "NOTAPHONE") == Error::InvalidPhoneme);
   assert(learn(1, Format::Text, "") == Error::EmptyInput);
   assert(learn(1, Format::Text, std::string(254, 'A').c_str()) == Error::TooLong);
-  assert(learn(1, Format::Text, std::string(253, '8').c_str()) == Error::TooLong);
+  // 253 chars of isolated digits expand far beyond the phone limit.
+  std::string digits;
+  for (int i = 0; i < 127; ++i) {
+    if (i)
+      digits += ' ';
+    digits += '9';
+  }
+  assert(digits.size() == 253);
+  assert(learn(1, Format::Text, digits.c_str()) == Error::TooLong);
   assert(learn(0, Format::Text, "HELLO") == Error::InvalidSlot);
   assert(learn(config::phraseSlotCount + 1, Format::Text, "HELLO") == Error::InvalidSlot);
   for (const char *bad : {"~A", "A?", "~A?MORE", "~A B?", "~A!B?"}) {

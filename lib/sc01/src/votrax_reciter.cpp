@@ -7,25 +7,6 @@
 
 namespace votrax {
 namespace {
-struct ReciterPhoneMap {
-  const char *source;
-  const char *sc01;
-};
-
-/* Longest spellings must precede their prefixes. SC-01 has fewer vowel
-   distinctions than the spelling rules, so a few entries intentionally share a target. */
-static const ReciterPhoneMap kReciterPhoneMap[] = {
-    {"IY", "E"},  {"IH", "I"},  {"EH", "EH"},   {"AE", "AE"},   {"AA", "AH"},   {"AH", "UH"},
-    {"AO", "O"},  {"UH", "UH"}, {"AX", "UH"},   {"IX", "I"},    {"ER", "ER"},   {"UX", "U"},
-    {"OH", "O1"}, {"RX", "R"},  {"LX", "L"},    {"WX", "W"},    {"YX", "Y"},    {"WH", "H W"},
-    {"NX", "NG"}, {"DX", "DT"}, {"SH", "SH"},   {"TH", "TH"},   {"ZH", "ZH"},   {"DH", "THV"},
-    {"CH", "CH"}, {"GX", "G"},  {"KX", "K"},    {"UL", "UH L"}, {"UM", "UH M"}, {"UN", "UH N"},
-    {"EY", "A"},  {"AY", "AY"}, {"OY", "O1 E"}, {"AW", "AW"},   {"OW", "O1"},   {"UW", "U"},
-    {"/H", "H"},  {"/X", "H"},  {"R", "R"},     {"L", "L"},     {"W", "W"},     {"Y", "Y"},
-    {"M", "M"},   {"N", "N"},   {"Q", "STOP"},  {"S", "S"},     {"F", "F"},     {"Z", "Z"},
-    {"V", "V"},   {"J", "J"},   {"B", "B"},     {"D", "D"},     {"G", "G"},     {"P", "P"},
-    {"T", "T"},   {"K", "K"}};
-
 /* SC-01 code order from the Type 'N Talk Appendix B. TNT represents code
    0 as ASCII 0x40, code 1 as 0x41, and so on through 0x7f. */
 static const char *kTypeNTalkPhones[] = {
@@ -73,51 +54,6 @@ size_t phonemePrefixLength(const char *text) {
     return (offset + 2);
   }
   return (0);
-}
-
-static bool reciterPhonemesToSc01(const char *phonemes, char *sc01, size_t sc01Size) {
-  if ((phonemes == NULL) || (sc01 == NULL) || (sc01Size == 0)) {
-    return (false);
-  }
-
-  size_t input = 0;
-  size_t output = 0;
-  sc01[0] = 0;
-
-  while ((static_cast<unsigned char>(phonemes[input]) != 0x9b) && (phonemes[input] != 0)) {
-    unsigned char c = static_cast<unsigned char>(phonemes[input]);
-    if (isspace(c) || (c == '*') || ((c >= '1') && (c <= '8'))) {
-      input++;
-      continue;
-    }
-
-    if ((c == '.') || (c == '?') || (c == ',') || (c == '-')) {
-      if (!appendToken(sc01, sc01Size, output, (c == ',') ? "PA0" : "PA1")) {
-        return (false);
-      }
-      input++;
-      continue;
-    }
-
-    bool matched = false;
-    for (size_t i = 0; i < (sizeof(kReciterPhoneMap) / sizeof(kReciterPhoneMap[0])); i++) {
-      size_t length = strlen(kReciterPhoneMap[i].source);
-      if (strncmp(phonemes + input, kReciterPhoneMap[i].source, length) == 0) {
-        if (!appendToken(sc01, sc01Size, output, kReciterPhoneMap[i].sc01)) {
-          return (false);
-        }
-        input += length;
-        matched = true;
-        break;
-      }
-    }
-
-    if (!matched) {
-      input++;
-    }
-  }
-
-  return (output > 0);
 }
 
 bool typeNTalkPhonemesToSc01(const char *phonemes, char *sc01, size_t sc01Size) {
@@ -205,9 +141,8 @@ bool textToSc01(const char *text, char *sc01, size_t sc01Size) {
     return (false);
   }
 
-  char phonemes[4096] = {};
-  if (!reciteEnglish(text, phonemes, sizeof(phonemes)) ||
-      !reciterPhonemesToSc01(phonemes, sc01, sc01Size)) {
+  /* reciteEnglish already emits space-separated SC-01 phoneme names. */
+  if (!reciteEnglish(text, sc01, sc01Size)) {
     sc01[0] = 0;
     return (false);
   }

@@ -9,11 +9,25 @@ The source project was left unchanged.
   and unused sample-rate selection were removed.
 - `votrax_reciter.cpp` retains the source project's SC-01 mapping and compact
   Type 'N Talk codec, with the external SAM library dependency removed.
-- `english_reciter.c` and `english_rules.h` are adapted from `reciter.c` and
-  `ReciterTabs.h` in the source project's installed **ESP8266SAM 1.1.0** library.
-  Only the text rule matcher and tables are retained. They are not a SAM
-  synthesizer. Changes isolate their workspace, add an explicit output
-  capacity, avoid the old short-output cutoff, and remove platform/debug hooks.
+- `english_reciter.c` is an English-to-SC-01 text-to-phoneme converter adapted
+  from the local reference `DevReferences/VotraxSC01/votrax_sc01_tts_v2`
+  (`votrax_sc01_tts.c`). It is a small, deterministic, malloc-free C99 engine
+  built in three stages: (1) a deliberately small exact-word override table for
+  the handful of words where the manufacturer's SC-01 program is noticeably
+  better (`IS`, `THE`, `YOU`, `YOUR`, `YES`, `WHO`, `HELLO`, `DO`, `DOES`,
+  `DONE`, `DOOR`, `EIGHT`, `TO`, `TWO`); (2) the public-domain Naval Research
+  Laboratory (NRL) English letter-to-sound rules (NRL Report 7948, 1976, via
+  John A. Wasser's 1985 public-domain C implementation); and (3) the
+  NRL/Votrax IPA-to-SC-01 mapping, including the manufacturer's "liquid L" and
+  dictionary-style vowel expansions (short I `I1 I3`, short E `EH1 EH3`,
+  short A `AE1 EH3`, long E `E1 Y`, long I `AH1 EH3 Y`, long U/OO `IU U1 U1`).
+  Integer and decimal numbers are expanded to words, and the SC-01 `T,CH` and
+  `D,J` ordering requirements are applied automatically. It is not a SAM
+  synthesizer and not a pronunciation lexicon. The port inlines the reference's
+  default options (word pause, sentence pause, final STOP, rhotic R), drops the
+  unused duration table, and exposes `reciteEnglish()`, which writes
+  space-separated SC-01 phoneme names (no trailing STOP) and reports whether
+  the output fits.
 - ES8388/I2S audio, the startup tones and the VIC Voice-style protocol derive from
   `source/SSSSAM/wokwi_esp32.cpp` in the source project.
 - The ES8388 codec uses Phil Schatzmann's **arduino-audio-driver v0.1.3**,
@@ -31,15 +45,25 @@ The source project was left unchanged.
 Upstream acknowledgements:
 
 - [Jan Derogee — Serial Speech Synthesizer SAM](https://janderogee.com/projects/SerialSpeechSynthesisSAM/SerialSpeechSynthesisSAM.htm)
-- [Earle F. Philhower — ESP8266SAM](https://github.com/earlephilhower/ESP8266SAM)
 - [Sebastian Macke — SAM reconstruction](https://github.com/s-macke/SAM)
 - [Phil Schatzmann — Arduino Audio Driver](https://github.com/pschatzmann/arduino-audio-driver/tree/v0.1.3)
+- Votrax, *Phonetic Speech Dictionary for the SC-01 Speech Synthesizer*, 1981.
+- Elovitz, Johnson, McHugh & Shore, *Automatic Translation of English Text to
+  Phonetics by Means of Letter-to-Sound Rules*, NRL Report 7948, 1976.
+- John A. Wasser's 1985 public-domain C implementation of the NRL rules:
+  https://www.tuhs.org/Usenet/comp.sources.unix/1985-April/005246.html
+- Greg Kennedy's transcription of the original NRL IPA-to-Votrax rules:
+  https://github.com/greg-kennedy/p5-NRL-TextToPhoneme
 
-No new blanket license is assigned to the inherited material. In particular,
-the original project's description of the reciter as public domain is not
-repeated here: its installed upstream README contains the following notice.
+No new blanket license is assigned to the inherited material. The SC-01
+synthesizer tables still derive from the SAM project, whose installed upstream
+README carries the following notice. The text-to-phoneme converter
+(`english_reciter.c`) no longer comes from that project; it is adapted from the
+local `votrax_sc01_tts_v2` reference, whose letter-to-sound rules are
+public-domain (NRL / Wasser 1985) and whose IPA-to-SC-01 mapping is derived
+from the public-domain Votrax dictionary and the NRL transcription.
 
-## Upstream reciter license notice
+## Upstream SAM license notice
 
 > While the ESP8266 wrapper is my own, the SAM software is a reverse-engineered version of a software published more than 34 years ago by "Don't ask Software".
 >

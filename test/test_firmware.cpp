@@ -91,7 +91,7 @@ static void testLearning() {
   assert(Serial.tx == "SLOTS 0\r\nEND\r\n" && vic().tx.empty());
   usbCommand("-learn 1 text HELLO WORLD");
   assert(Serial.tx == "OK 1\r\n" && vic().tx.empty() && audioFrames == 0);
-  assert(get(1) && get(1)->count == 8);
+  assert(get(1) && get(1)->count == 13);
   const Slot original = *get(1);
   vicCommand("-play 1");
   assert(vic().tx == "OK 1\r\n" && Serial.tx.empty() && audioFrames > 0);
@@ -115,7 +115,7 @@ static void testLearning() {
   assert(get(4)->phones[0] == 0 && get(4)->phones[1] == 63);
 
   vicCommand("-slots");
-  assert(vic().tx == "SLOTS 4\r\nSLOT 1 8\r\nSLOT 2 1\r\nSLOT 3 4\r\nSLOT 4 2\r\nEND\r\n");
+  assert(vic().tx == "SLOTS 4\r\nSLOT 1 13\r\nSLOT 2 1\r\nSLOT 3 4\r\nSLOT 4 2\r\nEND\r\n");
   for (const char *bad :
        {"-play 0", "-play 81", "-play -1", "-play 1X", "-play 9999999999999999999999999999",
         "-forget", "-learn 1", "-learn 1 other HELLO", "-learn 1 text", "-learn 1 phonemes NOPE",
@@ -162,7 +162,7 @@ static void testLearning() {
   // Explicit playback still speaks with PSEND enabled, and supports BREAK.
   sendVic("\x1b\x11\x1b\x15\r");
   vicCommand("-learn 6 text hello");
-  assert(vic().tx == "OK 6\r\n" && get(6)->count == 4);
+  assert(vic().tx == "OK 6\r\n" && get(6)->count == 7);
   vicCommand("-play 6");
   assert(vic().tx == "OK 6\r\n" && audioFrames > 0);
   injectDuringAudio = std::string(1, '\0');
