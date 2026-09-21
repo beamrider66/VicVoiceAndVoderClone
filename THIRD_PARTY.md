@@ -10,24 +10,29 @@ The source project was left unchanged.
 - `votrax_reciter.cpp` retains the source project's SC-01 mapping and compact
   Type 'N Talk codec, with the external SAM library dependency removed.
 - `english_reciter.c` is an English-to-SC-01 text-to-phoneme converter adapted
-  from the local reference `DevReferences/VotraxSC01/votrax_sc01_tts_v2`
+  from the local reference `DevReferences/VotraxSC01/votrax_sc01_tts_dictionary`
   (`votrax_sc01_tts.c`). It is a small, deterministic, malloc-free C99 engine
-  built in three stages: (1) a deliberately small exact-word override table for
-  the handful of words where the manufacturer's SC-01 program is noticeably
-  better (`IS`, `THE`, `YOU`, `YOUR`, `YES`, `WHO`, `HELLO`, `DO`, `DOES`,
-  `DONE`, `DOOR`, `EIGHT`, `TO`, `TWO`); (2) the public-domain Naval Research
-  Laboratory (NRL) English letter-to-sound rules (NRL Report 7948, 1976, via
-  John A. Wasser's 1985 public-domain C implementation); and (3) the
-  NRL/Votrax IPA-to-SC-01 mapping, including the manufacturer's "liquid L" and
-  dictionary-style vowel expansions (short I `I1 I3`, short E `EH1 EH3`,
-  short A `AE1 EH3`, long E `E1 Y`, long I `AH1 EH3 Y`, long U/OO `IU U1 U1`).
-  Integer and decimal numbers are expanded to words, and the SC-01 `T,CH` and
-  `D,J` ordering requirements are applied automatically. It is not a SAM
-  synthesizer and not a pronunciation lexicon. The port inlines the reference's
-  default options (word pause, sentence pause, final STOP, rhotic R), drops the
-  unused duration table, and exposes `reciteEnglish()`, which writes
-  space-separated SC-01 phoneme names (no trailing STOP) and reports whether
-  the output fits.
+  built in four stages: (1) exact SC-01 programs transcribed from the Votrax
+  SC-01 Phonetic Dictionary — 1,288 word entries in `votrax_sc01_dictionary.h`
+  (a sorted word→offset/length table plus a raw SC-01 phoneme-code blob, looked
+  up by binary search); (2) a small hand-tuned override table for words missing
+  from or ambiguous in the scanned dictionary (`IS`, `THE`, `YOU`, `YOUR`,
+  `YES`, `WHO`, `HELLO`, `DO`, `DOES`, `DONE`, `DOOR`, `EIGHT`, `TO`, `TWO`,
+  `THIS`, `CADET`); (3) the public-domain Naval Research Laboratory (NRL)
+  English letter-to-sound rules (NRL Report 7948, 1976, via John A. Wasser's
+  1985 public-domain C implementation); and (4) the NRL/Votrax IPA-to-SC-01
+  mapping, including the manufacturer's "liquid L" and dictionary-style vowel
+  expansions (short I `I1 I3`, short E `EH1 EH3`, short A `AE1 EH3`, long E
+  `E1 Y`, long I `AH1 EH3 Y`, long U/OO `IU U1 U1`). Integer and decimal
+  numbers are expanded to words, and the SC-01 `T,CH` and `D,J` ordering
+  requirements are applied automatically. It is not a SAM synthesizer and not a
+  pronunciation lexicon. The dictionary was transcribed from a user-supplied
+  scan of the 1981 Votrax dictionary; entries with unresolved OCR glyphs are
+  omitted (the NRL rules handle them), and the reference's `dictionary_audit.json`
+  records the flagged lines. The port inlines the reference's default options
+  (word pause, sentence pause, final STOP, rhotic R) and exposes
+  `reciteEnglish()`, which writes space-separated SC-01 phoneme names (no
+  trailing STOP) and reports whether the output fits.
 - ES8388/I2S audio, the startup tones and the VIC Voice-style protocol derive from
   `source/SSSSAM/wokwi_esp32.cpp` in the source project.
 - The ES8388 codec uses Phil Schatzmann's **arduino-audio-driver v0.1.3**,
@@ -59,9 +64,11 @@ No new blanket license is assigned to the inherited material. The SC-01
 synthesizer tables still derive from the SAM project, whose installed upstream
 README carries the following notice. The text-to-phoneme converter
 (`english_reciter.c`) no longer comes from that project; it is adapted from the
-local `votrax_sc01_tts_v2` reference, whose letter-to-sound rules are
-public-domain (NRL / Wasser 1985) and whose IPA-to-SC-01 mapping is derived
-from the public-domain Votrax dictionary and the NRL transcription.
+local `votrax_sc01_tts_dictionary` reference, whose letter-to-sound rules are
+public-domain (NRL / Wasser 1985), whose IPA-to-SC-01 mapping is derived from
+the public-domain Votrax dictionary and the NRL transcription, and whose
+1,288-entry word table is a transcription of the 1981 Votrax SC-01 Phonetic
+Dictionary.
 
 ## Upstream SAM license notice
 

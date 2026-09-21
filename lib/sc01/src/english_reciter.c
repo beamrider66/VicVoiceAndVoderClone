@@ -5,6 +5,8 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "votrax_sc01_dictionary.h"
+
 /* Votrax SC-01 6-bit phoneme codes (Votrax datasheet, 1980). */
 enum {
     SC01_EH3 = 0x00, SC01_EH2 = 0x01, SC01_EH1 = 0x02, SC01_PA0 = 0x03,
@@ -35,11 +37,12 @@ typedef struct votrax_tts_options {
 /*
  * English -> SC-01 converter.
  *
- * Stage 1: a deliberately small exact-word override table for words where the
- *          manufacturer's SC-01 program materially improves intelligibility.
- * Stage 2: the public-domain Naval Research Laboratory (NRL) letter-to-sound
+ * Stage 1: exact SC-01 programs transcribed from the Votrax dictionary
+ *          (votrax_sc01_dictionary.h, 1,288 entries).
+ * Stage 2: a small hand-tuned override table for missing/ambiguous entries.
+ * Stage 3: the public-domain Naval Research Laboratory (NRL) letter-to-sound
  *          rules (1976 / public-domain C implementation, 1985).
- * Stage 3: the NRL/Votrax IPA-to-SC-01 mapping, including the manufacturer's
+ * Stage 4: the NRL/Votrax IPA-to-SC-01 mapping, including the manufacturer's
  *          "liquid L" recommendations.
  *
  * This keeps the converter deterministic and malloc-free while avoiding the
@@ -57,6 +60,17 @@ static const char *const phoneme_names[64] = {
     "U","Y","T","R","E","W","AE","AE1",
     "AW2","UH2","UH1","UH","O2","O1","IU","U1",
     "THV","TH","ER","EH","E1","AW","PA1","STOP"
+};
+
+static const unsigned short phoneme_ms[64] = {
+     59, 71,121, 47, 47, 71,103, 90,
+     71, 55, 80,121,103, 80, 71, 71,
+     71,121, 71,146,121,146,103,185,
+    103, 80, 47, 71, 71,103, 55, 90,
+    185, 65, 80, 47,250,103,185,185,
+    185,103, 71, 90,185, 80,185,103,
+     90, 71,103,185, 80,121, 59, 90,
+     80, 71,146,185,121,250,185, 47
 };
 
 typedef struct emitter {
@@ -132,14 +146,32 @@ PHONESEQ(DOOR,  SC01_D, SC01_O1, SC01_O2, SC01_R);
 PHONESEQ(EIGHT, SC01_A2, SC01_A2, SC01_Y, SC01_T);
 PHONESEQ(TO,    SC01_T, SC01_IU, SC01_U1, SC01_U1);
 PHONESEQ(TWO,   SC01_T, SC01_IU, SC01_U1, SC01_U1);
+/* These two are custom fixes: neither word has a program in the scanned list. */
+PHONESEQ(THIS,  SC01_THV, SC01_I1, SC01_I3, SC01_S);
+PHONESEQ(CADET, SC01_K, SC01_UH3, SC01_D, SC01_EH1, SC01_EH3, SC01_T);
 
 #define OV(name) { #name, ov_##name, (unsigned char)(sizeof(ov_##name) / sizeof(ov_##name[0])) }
 static const exact_override_t exact_overrides[] = {
     OV(IS), OV(THE), OV(YOU), OV(YOUR), OV(YES), OV(WHO), OV(HELLO),
-    OV(DO), OV(DOES), OV(DONE), OV(DOOR), OV(EIGHT), OV(TO), OV(TWO)
+    OV(DO), OV(DOES), OV(DONE), OV(DOOR), OV(EIGHT), OV(TO), OV(TWO),
+    OV(THIS), OV(CADET)
 };
 #undef OV
 #undef PHONESEQ
+
+static const dictionary_entry_t *find_dictionary(const char *word)
+{
+    size_t lo = 0;
+    size_t hi = sizeof(dictionary_entries) / sizeof(dictionary_entries[0]);
+    while (lo < hi) {
+        size_t mid = lo + (hi - lo) / 2;
+        int cmp = strcmp(word, dictionary_entries[mid].word);
+        if (cmp < 0) hi = mid;
+        else if (cmp > 0) lo = mid + 1;
+        else return &dictionary_entries[mid];
+    }
+    return NULL;
+}
 
 static const exact_override_t *find_override(const char *word)
 {
@@ -161,12 +193,16 @@ int votrax_sc01_has_override(const char *word)
         ++word;
     }
     up[i] = '\0';
-    return find_override(up) != NULL;
+    return find_dictionary(up) != NULL || find_override(up) != NULL;
 }
 
 size_t votrax_sc01_override_count(void)
 {
-    return sizeof(exact_overrides)/sizeof(exact_overrides[0]);
+    size_t count = sizeof(dictionary_entries)/sizeof(dictionary_entries[0]);
+    size_t i;
+    for (i = 0; i < sizeof(exact_overrides)/sizeof(exact_overrides[0]); ++i)
+        if (!find_dictionary(exact_overrides[i].word)) ++count;
+    return count;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -1048,8 +1084,15 @@ static void nrl_to_sc01(const nrl_buffer_t *b, emitter_t *e,
 static void convert_word(const char *word, emitter_t *e,
                          const votrax_tts_options_t *opt)
 {
+    const dictionary_entry_t *dict = find_dictionary(word);
     const exact_override_t *ov = find_override(word);
     size_t i;
+
+    if (dict) {
+        for (i = 0; i < dict->length; ++i)
+            emit_phone(e, dictionary_codes[dict->offset + i]);
+        return;
+    }
 
     if (ov) {
         for (i = 0; i < ov->count; ++i) emit_phone(e, ov->phones[i]);
@@ -1249,6 +1292,11 @@ size_t votrax_text_to_sc01(const char *text,
 const char *votrax_sc01_name(uint8_t code)
 {
     return code < 64 ? phoneme_names[code] : "?";
+}
+
+unsigned votrax_sc01_duration_ms(uint8_t code)
+{
+    return code < 64 ? phoneme_ms[code] : 0;
 }
 
 size_t votrax_sc01_format(const uint8_t *codes, size_t count,
