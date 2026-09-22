@@ -94,6 +94,44 @@ or monitor `--port COMx`. The application image is
 `.pio/build/esp32dev/firmware.bin`; use PlatformIO upload to include the matching
 bootloader and partition table.
 
+## Browser installer
+
+The installer is published at <https://beamrider66.github.io/VVVC-Installer/>.
+Its separate public repository contains only the generated website and downloads;
+the firmware source repository remains private. To rebuild and publish an update:
+
+```powershell
+powershell -File tools/publish_pages.ps1
+```
+
+GitHub Pages serves the root of the public repository's `main` branch over HTTPS.
+The script requires Python, PlatformIO, Git and authenticated push access to
+`beamrider66/VVVC-Installer`. It builds locally and pushes the static files;
+GitHub then deploys them automatically.
+
+The older QNAP copy is at <http://www.fox-ts.co.uk/vvvc/> in
+`\\qnap\qweb\vvvc`. **Direct browser flashing requires HTTPS** (with a trusted
+certificate), or a local server on `http://localhost`. The HTTP page provides
+a ZIP download: extract it, run `start-local.bat` with Python 3 installed, then
+open `http://localhost:8765` in desktop Chrome or Edge.
+
+Rebuild and publish from the repository root:
+
+```powershell
+python tools/build_web.py --publish '\\qnap\qweb\vvvc'
+```
+
+Omit `--publish` to generate only `build/web`. The script builds the current
+firmware, merges the four flash images with DIO/40 MHz/4 MB settings, packages
+ESP Web Tools 10.4.0 locally (verified against its npm SHA-512), and creates a
+manifest, firmware checksum, guide and portable ZIP. No CDN is needed at runtime.
+Publishing verifies copied files and retains older firmware images. Source page
+files are in `web/`; generated files are ignored under `build/`.
+
+The installer targets classic ESP32 only. Users must also check for the ES8388
+codec, which chip detection cannot identify. Installation resets learned RAM
+slots. This packaging process does not flash a connected device.
+
 ## Wiring
 
 Connect the speaker to the Audio-Kit's **labelled speaker terminals**. The

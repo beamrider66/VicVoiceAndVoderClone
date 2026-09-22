@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Install Vic Voice and Voder Clone on an ESP32 Audio-Kit directly from your browser.">
+  <title>VVVC · Install your voice</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<main>
+  <header><a class="brand" href="./">VVVC<span>VIC VOICE &amp; VODER CLONE</span></a><span class="badge">ESP32 AUDIO-KIT</span></header>
+  <section class="intro">
+    <p class="eyebrow">A LITTLE BOARD. A FAMILIAR VOICE.</p>
+    <h1>Give your VIC<br>a voice.</h1>
+    <p class="lead">Text, SC-01 phonemes and remembered phrases.<br>Install the speech firmware straight from your browser.</p>
+    <div class="wave" aria-hidden="true">▂ ▄ ▆ █ ▅ ▃ ▂ ▅ █ ▆ ▄ ▂ ▃ ▆ █ ▄ ▂</div>
+  </section>
+  <section class="installer" aria-labelledby="install-title">
+    <div><p class="eyebrow">01 / INSTALL</p><h2 id="install-title">Connect. Flash. Speak.</h2>
+      <p>Use desktop Chrome or Edge and a USB data cable. No development tools required.</p>
+      <ol><li>Connect the board’s <strong>USB-to-UART port</strong> to your computer.</li><li>Close any serial terminal using the board.</li><li>Connect below, select the board’s serial port, then choose <strong>Install VVVC</strong>.</li></ol>
+    </div>
+    <div class="install-card">
+      <h3>Check your board</h3>
+      <p>This firmware needs a <strong>classic ESP32 Audio-Kit with an ES8388 codec and 4 MB flash</strong>. AC101 boards, bare DevKits and ESP32-S2/S3/C3 boards are not compatible.</p>
+      <p class="small">Installation replaces the existing firmware. Resetting the board clears all learned phrase slots.</p>
+      <div id="status" role="status">Loading the installer…</div>
+      <esp-web-install-button id="installer" manifest="manifest.json" hidden>
+        <button slot="activate">Connect to your board <span aria-hidden="true">→</span></button>
+        <span slot="unsupported">Use desktop Chrome or Edge with Web Serial support.</span>
+        <span slot="not-allowed">Open this page over HTTPS to connect to your board.</span>
+      </esp-web-install-button>
+      <p class="small">The installer checks the ESP32 chip family; it cannot identify your audio codec. Check the ES8388 marking before installing.</p>
+      <p class="release">Build <strong>@@VERSION@@</strong></p>
+    </div>
+  </section>
+  <section class="after" aria-labelledby="test-title"><p class="eyebrow">02 / HEAR IT WORK</p><h2 id="test-title">Your first words</h2>
+    <p>After installation, the board restarts and plays its startup sound. Connect a speaker to the labelled speaker terminals. In the installer, open <strong>Logs &amp; Console</strong> (115200 baud), type a line and send it.</p>
+    <div class="commands"><article><h3>Run the demo</h3><code>-demo</code><p>A one-shot audio and speech test.</p></article><article><h3>Say something</h3><code>Hello from my VIC</code><p>English text becomes SC-01 speech.</p></article><article><h3>Teach a phrase</h3><code>-learn 1 text Hello there</code><code>-play 1</code><p>80 shared slots. Teach them again after a reset.</p></article></div>
+    <p>The VIC serial input accepts these commands too. USB uses 115200 baud; the VIC connection defaults to 2400 baud. Speech is an approximation of the SC-01.</p>
+  </section>
+  <section class="help"><h2>Need a hand?</h2><details><summary>The board doesn’t appear or won’t connect</summary><p>Check that the cable carries data and uses the USB-to-UART connector. Close other serial programs. If the installer stays on “Connecting”, hold BOOT while connecting, then release it once flashing begins. A missing serial port may require the USB bridge manufacturer’s driver.</p></details>
+    <details><summary>Use a local copy or troubleshoot HTTPS</summary><p>This HTTPS site can flash directly from Chrome or Edge. For a local copy, <a href="vvvc-local-installer.zip" download>download the installer ZIP</a>, extract it, then double-click <strong>start-local.bat</strong> on Windows. This requires Python 3. Open <strong>http://localhost:8765</strong> in Chrome or Edge and leave the launcher window open while flashing. Do not open index.html directly from a drive.</p><p>Browsers need HTTPS with a trusted certificate or localhost to access USB serial ports. An ordinary HTTP website can provide downloads, but cannot connect to your board.</p></details>
+    <details><summary>Wiring, commands and manual flashing</summary><p><a href="guide.pdf">User &amp; VIC-20 wiring guide (review draft, PDF)</a> — includes connector viewing directions, examples and phrase learning.</p><p><a href="@@FIRMWARE@@" download>Download the merged firmware</a> for manual installation at address <code>0x0</code>. It includes the bootloader and partition table.</p><p><a href="release.json">Build details and SHA-256 checksum</a></p></details>
+  </section>
+  <footer><span>VVVC · Vic Voice and Voder Clone</span><a href="https://esphome.github.io/esp-web-tools/">Powered by ESP Web Tools</a></footer>
+</main>
+</body>
+</html>
