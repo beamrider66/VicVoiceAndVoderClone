@@ -1,9 +1,10 @@
 # VVVC — Vic Voice and Voder Clone
 
-Speech firmware for the **ESP32 Audio-Kit with an ES8388 codec**, using the
-working Audio-Kit configuration from `SerialSpeechSynthesizerSAM`. Audio uses
-the board's **16-bit I2S DAC and built-in speaker amplifier**, with the same
-mono signal on both channels. One local SC-01 engine supplies all speech.
+Speech firmware for **ESP32 boards**, with always-on GPIO PWM audio and an
+optional **ES8388 Audio-Kit 16-bit I2S DAC and speaker amplifier**. The same
+SC-01 speech and startup tones feed both outputs without selecting a mode.
+An absent codec does not prevent a normal DevKit from starting and speaking
+through its PWM pin. GPIO audio needs an external filter and amplifier.
 
 ## One combined interface
 
@@ -71,14 +72,34 @@ pio run -t upload
 pio device monitor
 ```
 
-There is one build environment, `esp32dev`. The Espressif32 platform is pinned
+The default build environment is `esp32dev`. The Espressif32 platform is pinned
 to `7.0.1`, the version installed for the working source project. PlatformIO
 automatically downloads Phil Schatzmann's `arduino-audio-driver` at **v0.1.3**,
 the same codec library version as that project. No filesystem image, Wi-Fi
 configuration or separately downloaded speech library is required.
 
-`esp32dev` is the ESP32 build profile; the firmware requires the ES8388 hardware
-on the Audio-Kit. A bare DevKit has no speaker output with this firmware.
+The available builds use 4 MB flash layouts and the board's USB-to-UART port:
+
+| Environment | Chip family | PWM audio GPIO | VIC RX / TX | Codec output |
+| --- | --- | --- | --- | --- |
+| `esp32dev` | Original ESP32 (Audio-Kit or DevKit) | 22 | 18 / 5, UART2 | ES8388 if detected |
+| `esp32c3` | ESP32-C3 | 4 | 6 / 7, UART1 | None |
+| `esp32s2` | ESP32-S2 | 4 | 6 / 7, UART1 | None |
+| `esp32s3` | ESP32-S3 | 4 | 6 / 7, UART1 | None |
+
+For example, `pio run -e esp32c3 -t upload --upload-port COM7`. The batch file
+continues to build the original ESP32 target. Each chip family needs its own
+binary; PWM does not make one binary run on every ESP32. These four families
+are build-checked with the pinned Arduino 2.0.17 toolchain. C2/C6/H2/P4 and
+other families are not supported by these builds. Boards need at least 4 MB
+flash and the chosen pins exposed and unused. Native USB-only boards need a
+USB-to-UART adapter for the console with these profiles.
+
+The PWM pin can be changed with `-DVVVC_PWM_PIN=number` in the environment's
+`build_flags`. Preserve existing flags. Avoid flash, PSRAM, USB, boot-strapping,
+UART, onboard peripheral and codec pins. The classic ESP32 build probes I2C
+on GPIO33/32; keep these free even on a board without the codec. Do not press
+any board button connected to an output. Check the specific board schematic.
 
 If PlatformIO is not on your Windows PATH, its installed executable on this
 machine can be invoked from PowerShell:
@@ -128,8 +149,8 @@ manifest, firmware checksum, guide and portable ZIP. No CDN is needed at runtime
 Publishing verifies copied files and retains older firmware images. Source page
 files are in `web/`; generated files are ignored under `build/`.
 
-The installer targets classic ESP32 only. Users must also check for the ES8388
-codec, which chip detection cannot identify. Installation resets learned RAM
+The installer selects ESP32, C3, S2 or S3 firmware by chip family. It cannot
+identify board wiring; users must check the pins above. Installation resets learned RAM
 slots. This packaging process does not flash a connected device.
 
 ## Wiring
@@ -151,9 +172,44 @@ master clock. The internal board connections are:
 Audio is **44.1 kHz, signed 16-bit stereo**, preserving the full SC-01 PCM
 sample values and the source Audio-Kit build's playback timing. Startup volume
 is **48%**, adjustable with `audioVolumePercent` in
-[`include/config.h`](include/config.h). GPIO 25 now carries the codec's digital
-word clock; the direct GPIO speaker output has been removed. Audio-Kit buttons,
-SD and audio capture are unused. The old GPIO-buzzer simulation was removed.
+[`include/config.h`](include/config.h). GPIO25 carries the codec's digital
+word clock, not analog audio. Audio-Kit buttons, SD and audio capture are unused.
+
+### Always-on GPIO audio
+
+GPIO22 on the original ESP32 (GPIO4 on the C3/S2/S3 profiles) carries the same
+mono PCM as the codec, converted to **8-bit PWM with a 156.25 kHz carrier**.
+It continues to run when no codec is installed; there is no fallback mode or
+audio selection command. The codec retains the full 16-bit samples. PWM volume
+is independent of the codec's 48% volume setting; adjust the external amplifier.
+The two outputs have independent buffering/clocks and are not phase-aligned.
+
+Use this starting circuit into a high-impedance amplifier input (47 kOhm or
+greater). Values may need adjustment for the amplifier and desired bandwidth:
+
+```text
+PWM GPIO -- 1k --+-- 4.7k --+-- 1uF film -- amplifier audio input
+                |         |
+               22nF      4.7nF
+                |         |
+ESP32 GND ------+---------+-------------- amplifier signal ground
+```
+
+The RC stages suppress the PWM carrier; the film capacitor blocks the roughly
+1.65 V idle DC level. Keep wires short and start at low amplifier volume. Use
+an amplifier to drive the speaker: **do not connect a speaker or headphones
+directly to the GPIO**, and do not connect the GPIO to the Audio-Kit speaker
+terminals. The pin is a 0–3.3 V PWM signal, not a built-in DAC output or a
+digital interface for an external DAC. During idle/after BREAK it rests at
+50% duty; the startup beep, `-tone`, `-demo` and every speech source use it.
+
+PWM uses LEDC low-speed channel/timer 0 and hardware timer 0. Its ring buffer
+is in internal RAM; the sample ISR does no allocation or logging. The timer
+rate is about 44101.43 samples/s (33 ppm above the nominal 44100 Hz). A stopped
+sample timer times out rather than hanging speech. A failed audio backend is
+disabled while the other continues. This new GPIO path has host and build
+checks but still needs physical filter, waveform and simultaneous audio tests.
+The existing PDF covers the earlier Audio-Kit wiring, not this new GPIO circuit.
 
 The VIC interface retains its existing wiring:
 
@@ -177,7 +233,7 @@ limits and the line timeout can also be changed in `include/config.h`.
 
 After upload, open the USB console at 115200 baud with a newline terminator.
 Startup plays the original **880 Hz then 440 Hz** audio test (300 ms each,
-with a 100 ms gap) through the DAC, then prints help. To check speech too, send:
+with a 100 ms gap) through PWM and any detected ES8388, then prints help. To check speech too, send:
 
 ```text
 -demo
@@ -436,7 +492,9 @@ the change. Baud commands preserve echo and the other settings; reset restores
 | `src/phrase_bank.cpp` | Bounded RAM storage and validation of learned phrases |
 | `src/phrase_commands.cpp` | Shared learn/play/list/delete commands and replies |
 | `src/speech.cpp` | Shared SC-01 playback and interruption |
-| `src/audio.cpp` | ES8388/I2S 16-bit output, speaker amplifier and startup/test tones |
+| `src/audio.cpp` | Fan-out to both outputs and startup/test tones |
+| `src/audio_codec.cpp` | Optional ES8388/I2S 16-bit output and speaker amplifier |
+| `src/audio_pwm.cpp`, `src/audio_pwm_hal.c` | Always-on buffered PWM and interrupt-safe duty updates |
 | `lib/sc01/src/` | Portable speech engine, ROM tables and English conversion |
 | `tools/learn_wizard.py`, `tools/data/` | USB loader and original Wizard of Wor phrase catalog |
 | `test/`, `tools/check.py` | Host regression checks |
@@ -467,7 +525,7 @@ from the VIC port. Loader checks cover acknowledgements, verification, errors,
 reset detection, old firmware rejection and selection of individual phrases.
 
 The SAM voice generator, voice controls, compatibility audio wrapper,
-ESP8266 targets, built-in Wizard of Wor playback, GPIO audio and unused filesystem /
+ESP8266 targets, built-in Wizard of Wor playback and unused filesystem /
 network settings were removed. English conversion uses a standalone,
 malloc-free **text-to-phoneme converter** built on a 1,288-entry transcription
 of the Votrax SC-01 Phonetic Dictionary, a small exact-word override table, the

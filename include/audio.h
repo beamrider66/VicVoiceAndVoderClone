@@ -5,7 +5,8 @@
 
 namespace audio {
 bool begin();
-// Samples retain the source project's 44.1 kHz Audio-Kit playback clock.
+// Fan out the same mono PCM to always-on GPIO PWM and the optional ES8388.
+// Samples retain the source project's nominal 44.1 kHz playback clock.
 bool write(const int16_t *mono, size_t frames);
 // Drain queued speech normally, or discard it immediately on BREAK.
 bool finish();

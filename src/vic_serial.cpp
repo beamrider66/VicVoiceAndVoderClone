@@ -7,7 +7,7 @@
 
 namespace vic_serial {
 namespace {
-HardwareSerial VicSerial(2);
+HardwareSerial VicSerial(config::vicUart);
 uint8_t vic_voice_rx[config::vicRxBufferSize];
 size_t vic_voice_rx_length = 0;
 uint32_t vic_voice_last_byte_ms = 0;

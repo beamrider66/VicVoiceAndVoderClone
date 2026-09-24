@@ -105,7 +105,11 @@ public:
 extern HardwareSerial Serial;
 extern uint32_t testMillis;
 inline uint32_t millis() { return testMillis; }
+#ifdef VVVC_PWM_HOST_TEST
+void delay(uint32_t ms);
+#else
 inline void delay(uint32_t ms) { testMillis += ms; }
+#endif
 constexpr int SERIAL_8N1 = 0;
 struct TestEsp {
   int restarts = 0;

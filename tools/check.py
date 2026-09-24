@@ -43,8 +43,19 @@ def main():
     audio = BUILD / ("test_audio.exe" if os.name == "nt" else "test_audio")
     run(cxx, "-std=c++11", "-O2", "-Wall", "-Wextra", "-I", ROOT / "test/support/audio",
         "-I", ROOT / "test/support", "-I", ROOT / "include",
-        ROOT / "test/test_audio.cpp", ROOT / "src/audio.cpp", "-o", audio)
+        ROOT / "test/test_audio.cpp", ROOT / "src/audio_codec.cpp", "-o", audio)
     subprocess.run([str(audio)], cwd=ROOT, check=True, timeout=30)
+    fanout = BUILD / ("test_audio_fanout.exe" if os.name == "nt" else "test_audio_fanout")
+    run(cxx, "-std=c++11", "-O2", "-Wall", "-Wextra", "-I", ROOT / "test/support",
+        "-I", ROOT / "include", ROOT / "test/test_audio_fanout.cpp", ROOT / "src/audio.cpp",
+        "-o", fanout)
+    for mode in ("none", "pwm", "codec", "both", "fail-codec", "fail-pwm"):
+        subprocess.run([str(fanout), mode], cwd=ROOT, check=True, timeout=30)
+    pwm = BUILD / ("test_audio_pwm.exe" if os.name == "nt" else "test_audio_pwm")
+    run(cxx, "-std=c++11", "-O2", "-Wall", "-Wextra", "-DVVVC_PWM_HOST_TEST",
+        "-I", ROOT / "test/support/pwm", "-I", ROOT / "include",
+        ROOT / "test/test_audio_pwm.cpp", ROOT / "src/audio_pwm.cpp", "-o", pwm)
+    subprocess.run([str(pwm)], cwd=ROOT, check=True, timeout=30)
     run(sys.executable, "-m", "unittest", "discover", "-s", "test", "-p", "test_loader.py")
 
 

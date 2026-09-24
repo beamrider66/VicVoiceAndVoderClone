@@ -49,7 +49,7 @@ void setup() {
   Serial.println();
   serial_commands::printHelp(Serial);
   Serial.println(audioReady ? "Ready. Send -demo to check the audio and speech."
-                            : "Audio unavailable. Check the ES8388 board and reset.");
+                            : "Audio unavailable. Check the audio initialization messages and reset.");
 }
 
 void loop() {

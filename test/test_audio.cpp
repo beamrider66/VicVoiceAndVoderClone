@@ -1,4 +1,7 @@
-#include "audio.h"
+#include "audio_outputs.h"
+#include <Wire.h>
+namespace audio = codec_audio;
+TestWire Wire;
 #include "config.h"
 #include <Arduino.h>
 #include <AudioBoard.h>
@@ -62,9 +65,12 @@ static std::vector<int16_t> samples() {
 }
 
 int main() {
+  Wire.present = false;
+  assert(!audio::begin() && !installed);
+  Wire.present = true;
   testCodec.beginOk = false;
   assert(!audio::begin() && !installed && !testCodec.powered);
-  assert(!audio::test() && output.empty());
+  assert(!audio::write(nullptr, 0) && output.empty());
   testCodec.beginOk = true;
   installResult = ESP_FAIL;
   assert(!audio::begin() && !installed && testCodec.muted);
@@ -109,29 +115,6 @@ int main() {
     assert(pcm[i] == 0);
   audio::silence();
   assert(clearCalls == clearsBeforeFinish + 1);
-
-  // Check the actual startup waveform, duration, pitch, silent gap and tail.
-  output.clear();
-  assert(audio::test());
-  pcm = samples();
-  const size_t toneFrames = 44100 * 300 / 1000, gapFrames = 4410;
-  assert(pcm.size() > (toneFrames * 2 + gapFrames) * 2);
-  for (size_t i = 0; i < pcm.size(); i += 2)
-    assert(pcm[i] == pcm[i + 1]);
-  for (int tone = 0; tone < 2; ++tone) {
-    size_t start = tone * (toneFrames + gapFrames);
-    int rising = 0;
-    for (size_t i = start; i < start + toneFrames; ++i) {
-      assert(pcm[2 * i] == -5000 || pcm[2 * i] == 5000);
-      if (i > start && pcm[2 * i] > 0 && pcm[2 * (i - 1)] < 0)
-        ++rising;
-    }
-    assert(rising >= (tone ? 131 : 263) && rising <= (tone ? 133 : 265));
-  }
-  for (size_t i = toneFrames; i < toneFrames + gapFrames; ++i)
-    assert(pcm[2 * i] == 0);
-  for (size_t i = 2 * toneFrames + gapFrames; i < pcm.size() / 2; ++i)
-    assert(pcm[2 * i] == 0);
 
   // A broken/stalled driver fails promptly and disables the speaker amplifier.
   writeResult = ESP_FAIL;

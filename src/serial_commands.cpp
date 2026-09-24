@@ -38,7 +38,11 @@ void printHelp(HardwareSerial &reply) {
                static_cast<unsigned>(config::phraseSlotCount),
                static_cast<unsigned>(config::phrasePhoneLimit));
   reply.printf("VIC input also accepts escape controls and SET TTY LO/HI.\r\n");
-  reply.printf("Audio: ES8388 Audio-Kit, 16-bit I2S, built-in speaker/headphone outputs.\r\n");
+  reply.printf("Audio: always-on 8-bit PWM on GPIO %d; external filter + amplifier required.\r\n",
+               config::audioPwmPin);
+#if VVVC_ES8388
+  reply.printf("ES8388 Audio-Kit: also outputs 16-bit I2S to speaker/headphones when detected.\r\n");
+#endif
   reply.printf("VIC UART default %lu baud 8N1, RX %d, TX %d.\r\n",
                static_cast<unsigned long>(config::vicBaud), config::vicRxPin, config::vicTxPin);
 }
