@@ -1,6 +1,6 @@
 {
   "name": "VVVC",
-  "version": "2026.09.24-4d01b46",
+  "version": "2026.09.24-0dcc692",
   "new_install_prompt_erase": true,
   "new_install_improv_wait_time": 0,
   "builds": [
@@ -9,7 +9,37 @@
       "improv": false,
       "parts": [
         {
-          "path": "firmware/vvvc-8982aad5107b84ea.bin",
+          "path": "firmware/vvvc-esp32-26ab51cab584ed73.bin",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "chipFamily": "ESP32-C3",
+      "improv": false,
+      "parts": [
+        {
+          "path": "firmware/vvvc-esp32c3-a80797969e1f2220.bin",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "chipFamily": "ESP32-S2",
+      "improv": false,
+      "parts": [
+        {
+          "path": "firmware/vvvc-esp32s2-a0f435d031085f73.bin",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "chipFamily": "ESP32-S3",
+      "improv": false,
+      "parts": [
+        {
+          "path": "firmware/vvvc-esp32s3-840fc54f69fe7b0f.bin",
           "offset": 0
         }
       ]

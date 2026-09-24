@@ -1,12 +1,43 @@
 {
-  "version": "2026.09.24-4d01b46",
-  "source_commit": "4d01b46",
+  "version": "2026.09.24-0dcc692",
+  "source_commit": "0dcc692",
   "firmware_sources_modified": false,
-  "built_utc": "2026-09-24T10:44:40.313684+00:00",
-  "firmware": "firmware/vvvc-8982aad5107b84ea.bin",
-  "sha256": "8982aad5107b84ea13b082eedc7c857a23ce43b69952f6a9d9e36f46c3b11e2a",
-  "bytes": 515040,
+  "built_utc": "2026-09-24T11:15:21.949278+00:00",
+  "images": [
+    {
+      "chipFamily": "ESP32",
+      "environment": "esp32dev",
+      "firmware": "firmware/vvvc-esp32-26ab51cab584ed73.bin",
+      "sha256": "26ab51cab584ed731eeafacb4f4d082f50c164b834c567142708847e2ca2d79b",
+      "bytes": 531808,
+      "pwm_gpio": 22
+    },
+    {
+      "chipFamily": "ESP32-C3",
+      "environment": "esp32c3",
+      "firmware": "firmware/vvvc-esp32c3-a80797969e1f2220.bin",
+      "sha256": "a80797969e1f2220febecafa016040131efa636316061cdb9650b3ed2e24a396",
+      "bytes": 428560,
+      "pwm_gpio": 4
+    },
+    {
+      "chipFamily": "ESP32-S2",
+      "environment": "esp32s2",
+      "firmware": "firmware/vvvc-esp32s2-a0f435d031085f73.bin",
+      "sha256": "a0f435d031085f73aad8ebf782b746d3eeff4fc4a10ecec0706c1c1fd36d1233",
+      "bytes": 404736,
+      "pwm_gpio": 4
+    },
+    {
+      "chipFamily": "ESP32-S3",
+      "environment": "esp32s3",
+      "firmware": "firmware/vvvc-esp32s3-840fc54f69fe7b0f.bin",
+      "sha256": "840fc54f69fe7b0f67f72e2dc2dfe3a3dd85988dc1abb8118f1544b8f0bcfe16",
+      "bytes": 431264,
+      "pwm_gpio": 4
+    }
+  ],
   "esp_web_tools": "10.4.0",
-  "board": "ESP32 Audio-Kit, ES8388, 4MB",
+  "flash_size": "4MB",
   "flash_offset": 0
 }
