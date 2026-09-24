@@ -2,7 +2,7 @@
   "version": "2026.09.24-732d76b",
   "source_commit": "732d76b",
   "firmware_sources_modified": false,
-  "built_utc": "2026-09-24T11:24:58.211211+00:00",
+  "built_utc": "2026-09-24T11:25:00.205200+00:00",
   "images": [
     {
       "chipFamily": "ESP32",
