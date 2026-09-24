@@ -96,17 +96,17 @@ bootloader and partition table.
 
 ## Browser installer
 
-The installer is published at <https://beamrider66.github.io/VVVC-Installer/>.
-Its separate public repository contains only the generated website and downloads;
-the firmware source repository remains private. To rebuild and publish an update:
+The installer is published at <https://beamrider66.github.io/VicVoiceAndVoderClone/>.
+The public project repository holds firmware source on `main` and generated
+website files on `gh-pages`. To rebuild and publish an update:
 
 ```powershell
 powershell -File tools/publish_pages.ps1
 ```
 
-GitHub Pages serves the root of the public repository's `main` branch over HTTPS.
+GitHub Pages serves the root of the project's `gh-pages` branch over HTTPS.
 The script requires Python, PlatformIO, Git and authenticated push access to
-`beamrider66/VVVC-Installer`. It builds locally and pushes the static files;
+`beamrider66/VicVoiceAndVoderClone`. It builds locally and pushes the static files;
 GitHub then deploys them automatically.
 
 The older QNAP copy is at <http://www.fox-ts.co.uk/vvvc/> in
