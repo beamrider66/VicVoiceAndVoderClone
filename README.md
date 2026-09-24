@@ -130,16 +130,15 @@ The script requires Python, PlatformIO, Git and authenticated push access to
 `beamrider66/VicVoiceAndVoderClone`. It builds locally and pushes the static files;
 GitHub then deploys them automatically.
 
-The older QNAP copy is at <http://www.fox-ts.co.uk/vvvc/> in
-`\\qnap\qweb\vvvc`. **Direct browser flashing requires HTTPS** (with a trusted
-certificate), or a local server on `http://localhost`. The HTTP page provides
-a ZIP download: extract it, run `start-local.bat` with Python 3 installed, then
-open `http://localhost:8765` in desktop Chrome or Edge.
+**Direct browser flashing requires HTTPS** (with a trusted certificate), or a
+local server on `http://localhost`. The installer provides a ZIP download:
+extract it, run `start-local.bat` with Python 3 installed, then open
+`http://localhost:8765` in desktop Chrome or Edge.
 
-Rebuild and publish from the repository root:
+Build the flashing site locally with:
 
 ```powershell
-python tools/build_web.py --publish '\\qnap\qweb\vvvc'
+python tools/build_web.py
 ```
 
 Omit `--publish` to generate only `build/web`. The script builds the current

@@ -26,7 +26,7 @@ def run(*args):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--publish', type=Path, help='Destination folder, e.g. \\\\qnap\\qweb\\vvvc')
+    parser.add_argument('--publish', type=Path, help='Optional destination folder for a static-site copy')
     args = parser.parse_args()
     pio = shutil.which('pio') or PIO_HOME / 'penv/Scripts/pio.exe'
     python = PIO_HOME / ('penv/Scripts/python.exe' if __import__('os').name == 'nt' else 'penv/bin/python')
