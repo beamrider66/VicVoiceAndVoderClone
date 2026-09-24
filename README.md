@@ -47,6 +47,17 @@ python -m pip install -r tools/requirements-docs.txt
 python tools/build_user_guide.py
 ```
 
+## KiCad VIC user-port carrier (draft)
+
+The repository also contains a first-pass [ESP32 user-port/audio carrier](hardware/VVVC_UserPort_Audio/README.md).
+It is designed for a 38-pin ESP32 DevKitC/WROOM powered from USB, with a
+dual-gang volume wheel for the shared 3.5 mm and RCA outputs, user-port edge
+contacts, and enclosure standoff holes. The PCB is still a placement/netlist
+draft: the exact audio-buffer and connector parts must be selected, routing
+completed, and the enclosure checked before fabrication. The flashing guide
+continues to cover firmware installation and serial setup; it does not present
+this unfinished carrier as a production hardware option.
+
 ## Build and upload
 
 On Windows, double-click [`build_and_flash.bat`](build_and_flash.bat) to build
