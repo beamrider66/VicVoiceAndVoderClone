@@ -1,4 +1,6 @@
-# VVVC User-Port Audio Carrier
+# VVVC User-Port Audio Carrier (WIP)
+
+**WORK IN PROGRESS — do not send this layout to fabrication.**
 
 KiCad 10 carrier PCB for the VVVC firmware. It plugs into the VIC-20 user
 port, accepts a common 38-pin ESP32 DevKitC/WROOM development board, and breaks

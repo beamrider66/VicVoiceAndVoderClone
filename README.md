@@ -49,7 +49,7 @@ python tools/build_user_guide.py
 
 ## KiCad VIC user-port carrier (draft)
 
-The repository also contains a first-pass [ESP32 user-port/audio carrier](hardware/VVVC_UserPort_Audio/README.md).
+The repository also contains a first-pass [ESP32 user-port/audio carrier](hardware/VVVC_UserPort_Audio_WIP/README.md).
 It is designed for a 38-pin ESP32 DevKitC/WROOM powered from USB, with a
 dual-gang volume wheel for the shared 3.5 mm and RCA outputs, user-port edge
 contacts, and enclosure standoff holes. The PCB is still a placement/netlist
