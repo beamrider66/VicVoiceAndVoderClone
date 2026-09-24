@@ -1,0 +1,21 @@
+Reference,Function,Value,Notes
+J1,VIC user port edge,24 contacts / 2.54 mm,53 mm insertion tongue; A/N GND; M RX; B/C TX
+JESP,ESP32 DevKit socket,38-pin / 2.54 mm,Common ESP32 DevKitC/WROOM 38-pin board
+J2,Headphone / line jack,3.5 mm stereo,Buffered mixed output; powered amplifier recommended
+J3,VIC audio input,RCA stereo,AC-coupled L/R input
+J4,Mixed audio output,RCA stereo,AC-coupled buffered L/R output
+U1,ESP32 module carrier,ESP32 DevKitC/WROOM,Plug-in board, not bare module
+U2,Audio buffer,NJM4556D or OPA1678,Fit a headphone-capable dual audio op amp
+R1,RX divider,10k,User-port M to GPIO18
+R2,RX divider,18k,GPIO18 to GND
+R3,PWM filter,1k,GPIO22 series resistor
+R4,PWM filter,4.7k,Second RC stage
+C1,PWM filter,22nF,First shunt capacitor
+C2,PWM filter,4.7nF,Second shunt capacitor
+C3,DC block,1uF film,PWM to mixer input
+R5,Audio mixer left,10k,RCA input left to MIX_L
+R6,Audio mixer right,10k,RCA input right to MIX_R
+R7,Speech mixer right,10k,Filtered PWM speech to MIX_R for mono speech in both channels
+J5,External power input,5V DC screw terminal or barrel jack,Regulated 5V 1A minimum; do not populate a VIC power link
+F1,Input protection,1A resettable fuse,External 5V input only
+H1-H4,Enclosure standoffs,3.2 mm plated holes,(8,22),(92,22),(8,72),(92,72) mm

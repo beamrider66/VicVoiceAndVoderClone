@@ -7,6 +7,9 @@ __pycache__/
 .vscode/launch.json
 .vscode/ipch/
 
+# KiCad per-user view state; the PCB itself and generated previews are tracked.
+**/*.kicad_prl
+
 # Publish the current guide, keeping older local review copies out of Git.
 output/pdf/*.pdf
 !output/pdf/VVVC_User_and_VIC20_Wiring_Guide_v2.pdf

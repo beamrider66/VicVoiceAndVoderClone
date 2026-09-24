@@ -1,0 +1,790 @@
+** Drc report for VVVC_UserPort_Audio.kicad_pcb **
+** Created on 2026-09-24T13:41:21 **
+** Report includes: Errors, Warnings **
+
+** Found 172 DRC violations **
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(23.0000 mm, 0.0000 mm): Segment on Edge.Cuts
+    @(50.0000 mm, 0.0000 mm): Reference field of J1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint J1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(50.0000 mm, 44.0000 mm): Footprint JESP
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(21.0000 mm, 18.0000 mm): Footprint R1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(21.0000 mm, 25.0000 mm): Footprint R2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(72.0000 mm, 19.0000 mm): Footprint R3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(72.0000 mm, 26.0000 mm): Footprint R4
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(78.0000 mm, 24.0000 mm): Footprint C1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(82.0000 mm, 30.0000 mm): Footprint C2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(72.0000 mm, 33.0000 mm): Footprint C3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(68.0000 mm, 58.0000 mm): Footprint R5
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(68.0000 mm, 64.0000 mm): Footprint R6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(72.0000 mm, 40.0000 mm): Footprint R7
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(88.0000 mm, 48.0000 mm): Footprint J3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(88.0000 mm, 61.0000 mm): Footprint J4
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(88.0000 mm, 34.0000 mm): Footprint J2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(85.0000 mm, 20.0000 mm): Footprint J5
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(82.0000 mm, 18.0000 mm): Footprint F1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(76.0000 mm, 50.0000 mm): Footprint U2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(8.0000 mm, 22.0000 mm): Footprint H1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(92.0000 mm, 22.0000 mm): Footprint H2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(8.0000 mm, 72.0000 mm): Footprint H3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'VVVC'
+    Local override; warning
+    @(92.0000 mm, 72.0000 mm): Footprint H4
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 21.1400 mm): Footprint text of JESP (3V3)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 23.6800 mm): Footprint text of JESP (EN)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 26.2200 mm): Footprint text of JESP (VP)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 28.7600 mm): Footprint text of JESP (VN)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 31.3000 mm): Footprint text of JESP (IO34)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 33.8400 mm): Footprint text of JESP (IO35)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 36.3800 mm): Footprint text of JESP (IO32)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 38.9200 mm): Footprint text of JESP (IO33)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 41.4600 mm): Footprint text of JESP (IO25)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 44.0000 mm): Footprint text of JESP (IO26)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 46.5400 mm): Footprint text of JESP (IO27)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 49.0800 mm): Footprint text of JESP (IO14)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 51.6200 mm): Footprint text of JESP (IO12)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 54.1600 mm): Footprint text of JESP (GND)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 56.7000 mm): Footprint text of JESP (IO13)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 59.2400 mm): Footprint text of JESP (IO9)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 61.7800 mm): Footprint text of JESP (IO10)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 64.3200 mm): Footprint text of JESP (IO11)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(34.2000 mm, 66.8600 mm): Footprint text of JESP (5V)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 21.1400 mm): Footprint text of JESP (GND)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 23.6800 mm): Footprint text of JESP (IO23)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 26.2200 mm): Footprint text of JESP (IO22)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 28.7600 mm): Footprint text of JESP (IO1)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 31.3000 mm): Footprint text of JESP (IO3)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 33.8400 mm): Footprint text of JESP (IO21)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 36.3800 mm): Footprint text of JESP (IO19)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 38.9200 mm): Footprint text of JESP (IO18)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 41.4600 mm): Footprint text of JESP (IO5)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 44.0000 mm): Footprint text of JESP (IO17)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 46.5400 mm): Footprint text of JESP (IO16)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 49.0800 mm): Footprint text of JESP (IO4)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 51.6200 mm): Footprint text of JESP (IO0)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 54.1600 mm): Footprint text of JESP (IO2)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 56.7000 mm): Footprint text of JESP (IO15)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 59.2400 mm): Footprint text of JESP (SD1)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 61.7800 mm): Footprint text of JESP (SD0)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 64.3200 mm): Footprint text of JESP (CLK)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(65.8000 mm, 66.8600 mm): Footprint text of JESP (GND)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(50.0000 mm, 0.0000 mm): Reference field of J1
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(50.0000 mm, 70.0000 mm): PCB text 'GPIO22 PWM  |  M -> RX  |  B/C <- TX' on f.silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 61.7800 mm): Footprint text of JESP (IO10)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(34.2000 mm, 64.3200 mm): Footprint text of JESP (IO11)
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 66.8600 mm): Footprint text of JESP (5V)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 51.6200 mm): Footprint text of JESP (IO12)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 54.1600 mm): Footprint text of JESP (GND)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 56.7000 mm): Footprint text of JESP (IO13)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 59.2400 mm): Footprint text of JESP (IO9)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 21.1400 mm): Footprint text of JESP (3V3)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 36.3800 mm): Footprint text of JESP (IO32)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 38.9200 mm): Footprint text of JESP (IO33)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 41.4600 mm): Footprint text of JESP (IO25)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 44.0000 mm): Footprint text of JESP (IO26)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 31.3000 mm): Footprint text of JESP (IO34)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 33.8400 mm): Footprint text of JESP (IO35)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(34.2000 mm, 46.5400 mm): Footprint text of JESP (IO27)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(34.2000 mm, 49.0800 mm): Footprint text of JESP (IO14)
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 44.0000 mm): Footprint text of JESP (IO17)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 38.9200 mm): Footprint text of JESP (IO18)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 41.4600 mm): Footprint text of JESP (IO5)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 46.5400 mm): Footprint text of JESP (IO16)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 49.0800 mm): Footprint text of JESP (IO4)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 51.6200 mm): Footprint text of JESP (IO0)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 54.1600 mm): Footprint text of JESP (IO2)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(65.4000 mm, 56.5000 mm): Rectangle of R5 on f.silkscreen
+    @(65.8000 mm, 56.7000 mm): Footprint text of JESP (IO15)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(65.8000 mm, 59.2400 mm): Footprint text of JESP (SD1)
+    @(65.4000 mm, 56.5000 mm): Rectangle of R5 on f.silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(65.4000 mm, 56.5000 mm): Rectangle of R5 on f.silkscreen
+    @(68.0000 mm, 60.0000 mm): Reference field of R6
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(65.8000 mm, 64.3200 mm): Footprint text of JESP (CLK)
+    @(65.4000 mm, 62.5000 mm): Rectangle of R6 on f.silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 56.7000 mm): Footprint text of JESP (IO15)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(65.8000 mm, 59.2400 mm): Footprint text of JESP (SD1)
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 61.7800 mm): Footprint text of JESP (SD0)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 64.3200 mm): Footprint text of JESP (CLK)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 66.8600 mm): Footprint text of JESP (GND)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 21.1400 mm): Footprint text of JESP (GND)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 23.6800 mm): Footprint text of JESP (IO23)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 26.2200 mm): Footprint text of JESP (IO22)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 28.7600 mm): Footprint text of JESP (IO1)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 31.3000 mm): Footprint text of JESP (IO3)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 33.8400 mm): Footprint text of JESP (IO21)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(35.0000 mm, 18.6000 mm): Rectangle of JESP on f.silkscreen
+    @(65.8000 mm, 36.3800 mm): Footprint text of JESP (IO19)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(79.4000 mm, 16.5000 mm): Rectangle of F1 on f.silkscreen
+    @(85.0000 mm, 16.0000 mm): Reference field of J5
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(79.4000 mm, 16.5000 mm): Rectangle of F1 on f.silkscreen
+    @(82.4000 mm, 18.5000 mm): Rectangle of J5 on f.silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(36.0000 mm, 10.1000 mm): Pad 1 [GND] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(38.5400 mm, 10.1000 mm): Pad 2 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(41.0800 mm, 10.1000 mm): Pad 3 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(43.6200 mm, 10.1000 mm): Pad 4 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(46.1600 mm, 10.1000 mm): Pad 5 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(36.0000 mm, 3.9000 mm): Pad A [GND] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(38.5400 mm, 3.9000 mm): Pad B [VIC_TX] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(41.0800 mm, 3.9000 mm): Pad C [VIC_TX] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(43.6200 mm, 3.9000 mm): Pad D [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(46.1600 mm, 3.9000 mm): Pad E [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(36.0000 mm, 8.2000 mm): Footprint text of J1 (A)
+    @(36.0000 mm, 10.1000 mm): Pad 1 [GND] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(38.5400 mm, 8.2000 mm): Footprint text of J1 (B)
+    @(38.5400 mm, 10.1000 mm): Pad 2 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(41.0800 mm, 8.2000 mm): Footprint text of J1 (C)
+    @(41.0800 mm, 10.1000 mm): Pad 3 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(43.6200 mm, 8.2000 mm): Footprint text of J1 (D)
+    @(43.6200 mm, 10.1000 mm): Pad 4 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(51.2400 mm, 10.1000 mm): Pad 7 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(53.7800 mm, 10.1000 mm): Pad 8 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(56.3200 mm, 10.1000 mm): Pad 9 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(53.7800 mm, 8.2000 mm): Footprint text of J1 (J)
+    @(53.7800 mm, 10.1000 mm): Pad 8 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(56.3200 mm, 8.2000 mm): Footprint text of J1 (K)
+    @(56.3200 mm, 10.1000 mm): Pad 9 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(53.7800 mm, 3.9000 mm): Pad J [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(56.3200 mm, 3.9000 mm): Pad K [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(58.8600 mm, 3.9000 mm): Pad L [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(61.4000 mm, 10.1000 mm): Pad 11 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(63.9400 mm, 10.1000 mm): Pad 12 [GND] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(48.7000 mm, 10.1000 mm): Pad 6 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(48.7000 mm, 8.2000 mm): Footprint text of J1 (F)
+    @(48.7000 mm, 10.1000 mm): Pad 6 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(51.2400 mm, 8.2000 mm): Footprint text of J1 (H)
+    @(51.2400 mm, 10.1000 mm): Pad 7 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(48.7000 mm, 3.9000 mm): Pad F [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(46.1600 mm, 8.2000 mm): Footprint text of J1 (E)
+    @(46.1600 mm, 10.1000 mm): Pad 5 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(51.2400 mm, 3.9000 mm): Pad H [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(36.0000 mm, 3.9000 mm): Pad A [GND] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(38.5400 mm, 3.9000 mm): Pad B [VIC_TX] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(41.0800 mm, 3.9000 mm): Pad C [VIC_TX] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(43.6200 mm, 3.9000 mm): Pad D [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(46.1600 mm, 3.9000 mm): Pad E [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(48.7000 mm, 3.9000 mm): Pad F [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(51.2400 mm, 3.9000 mm): Pad H [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(53.7800 mm, 3.9000 mm): Pad J [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(56.3200 mm, 3.9000 mm): Pad K [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(58.8600 mm, 3.9000 mm): Pad L [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(61.4000 mm, 3.9000 mm): Pad M [VIC_RX] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(63.9400 mm, 3.9000 mm): Pad N [GND] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(36.0000 mm, 10.1000 mm): Pad 1 [GND] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(38.5400 mm, 10.1000 mm): Pad 2 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(41.0800 mm, 10.1000 mm): Pad 3 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(43.6200 mm, 10.1000 mm): Pad 4 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(46.1600 mm, 10.1000 mm): Pad 5 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(48.7000 mm, 10.1000 mm): Pad 6 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(51.2400 mm, 10.1000 mm): Pad 7 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(53.7800 mm, 10.1000 mm): Pad 8 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(56.3200 mm, 10.1000 mm): Pad 9 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(58.8600 mm, 10.1000 mm): Pad 10 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(61.4000 mm, 10.1000 mm): Pad 11 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 0.8000 mm): Rectangle of J1 on f.silkscreen
+    @(63.9400 mm, 10.1000 mm): Pad 12 [GND] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 12.0000 mm): PCB text 'INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP' on f.silkscreen
+    @(58.8600 mm, 10.1000 mm): Pad 10 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(58.8600 mm, 8.2000 mm): Footprint text of J1 (L)
+    @(58.8600 mm, 10.1000 mm): Pad 10 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(61.4000 mm, 8.2000 mm): Footprint text of J1 (M)
+    @(61.4000 mm, 10.1000 mm): Pad 11 [<no net>] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(61.4000 mm, 3.9000 mm): Pad M [VIC_RX] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 4.0000 mm): Footprint text of J1 (INSERTION EDGE - COMPONENT SIDE)
+    @(63.9400 mm, 3.9000 mm): Pad N [GND] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(63.9400 mm, 8.2000 mm): Footprint text of J1 (N)
+    @(63.9400 mm, 10.1000 mm): Pad 12 [GND] of J1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 44.0000 mm): Footprint text of JESP (ESP32 DEVKIT - USB THIS SIDE)
+    @(37.3000 mm, 44.0000 mm): PTH pad 10 [<no net>] of JESP
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.0000 mm, 44.0000 mm): Footprint text of JESP (ESP32 DEVKIT - USB THIS SIDE)
+    @(62.7000 mm, 44.0000 mm): PTH pad 29 [<no net>] of JESP
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(65.8000 mm, 56.7000 mm): Footprint text of JESP (IO15)
+    @(66.7300 mm, 58.0000 mm): PTH pad 1 [AUDIO_IN_L] of R5
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(65.8000 mm, 59.2400 mm): Footprint text of JESP (SD1)
+    @(66.7300 mm, 58.0000 mm): PTH pad 1 [AUDIO_IN_L] of R5
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(65.8000 mm, 64.3200 mm): Footprint text of JESP (CLK)
+    @(66.7300 mm, 64.0000 mm): PTH pad 1 [AUDIO_IN_R] of R6
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(79.4000 mm, 16.5000 mm): Rectangle of F1 on f.silkscreen
+    @(83.7300 mm, 20.0000 mm): PTH pad 1 [+5V_USB] of J5
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(82.4000 mm, 18.5000 mm): Rectangle of J5 on f.silkscreen
+    @(83.2700 mm, 18.0000 mm): PTH pad 2 [+5V_SYS] of F1
+
+** Found 36 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(22.2700 mm, 25.0000 mm): PTH pad 2 [GND] of R2
+    @(36.0000 mm, 10.1000 mm): Pad 1 [GND] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(36.0000 mm, 10.1000 mm): Pad 1 [GND] of J1 on F.Cu
+    @(36.0000 mm, 3.9000 mm): Pad A [GND] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(37.3000 mm, 54.1600 mm): PTH pad 14 [GND] of JESP
+    @(62.7000 mm, 66.8600 mm): PTH pad 38 [GND] of JESP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(62.7000 mm, 21.1400 mm): PTH pad 20 [GND] of JESP
+    @(79.2700 mm, 24.0000 mm): PTH pad 2 [GND] of C1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(62.7000 mm, 66.8600 mm): PTH pad 38 [GND] of JESP
+    @(82.3500 mm, 50.0000 mm): PTH pad 6 [GND] of U2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(63.9400 mm, 3.9000 mm): Pad N [GND] of J1 on F.Cu
+    @(63.9400 mm, 10.1000 mm): Pad 12 [GND] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(63.9400 mm, 3.9000 mm): Pad N [GND] of J1 on F.Cu
+    @(36.0000 mm, 3.9000 mm): Pad A [GND] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(63.9400 mm, 10.1000 mm): Pad 12 [GND] of J1 on F.Cu
+    @(62.7000 mm, 21.1400 mm): PTH pad 20 [GND] of JESP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(79.2700 mm, 24.0000 mm): PTH pad 2 [GND] of C1
+    @(83.2700 mm, 30.0000 mm): PTH pad 2 [GND] of C2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(79.2700 mm, 24.0000 mm): PTH pad 2 [GND] of C1
+    @(86.2700 mm, 20.0000 mm): PTH pad 2 [GND] of J5
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(82.3500 mm, 50.0000 mm): PTH pad 6 [GND] of U2
+    @(90.5400 mm, 34.0000 mm): PTH pad 3 [GND] of J2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(83.2700 mm, 30.0000 mm): PTH pad 2 [GND] of C2
+    @(90.5400 mm, 34.0000 mm): PTH pad 3 [GND] of J2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(79.8100 mm, 50.0000 mm): PTH pad 5 [+5V_USB] of U2
+    @(83.7300 mm, 20.0000 mm): PTH pad 1 [+5V_USB] of J5
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(83.7300 mm, 20.0000 mm): PTH pad 1 [+5V_USB] of J5
+    @(80.7300 mm, 18.0000 mm): PTH pad 1 [+5V_USB] of F1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(37.3000 mm, 66.8600 mm): PTH pad 19 [+5V_SYS] of JESP
+    @(83.2700 mm, 18.0000 mm): PTH pad 2 [+5V_SYS] of F1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(61.4000 mm, 3.9000 mm): Pad M [VIC_RX] of J1 on F.Cu
+    @(19.7300 mm, 18.0000 mm): PTH pad 1 [VIC_RX] of R1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(62.7000 mm, 38.9200 mm): PTH pad 27 [VIC_RX] of JESP
+    @(61.4000 mm, 3.9000 mm): Pad M [VIC_RX] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(41.0800 mm, 3.9000 mm): Pad C [VIC_TX] of J1 on F.Cu
+    @(38.5400 mm, 3.9000 mm): Pad B [VIC_TX] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(62.7000 mm, 41.4600 mm): PTH pad 28 [VIC_TX] of JESP
+    @(41.0800 mm, 3.9000 mm): Pad C [VIC_TX] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(62.7000 mm, 26.2200 mm): PTH pad 22 [PWM_AUDIO] of JESP
+    @(70.7300 mm, 19.0000 mm): PTH pad 1 [PWM_AUDIO] of R3
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(66.7300 mm, 58.0000 mm): PTH pad 1 [AUDIO_IN_L] of R5
+    @(86.7300 mm, 48.0000 mm): PTH pad 1 [AUDIO_IN_L] of J3
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(66.7300 mm, 64.0000 mm): PTH pad 1 [AUDIO_IN_R] of R6
+    @(89.2700 mm, 48.0000 mm): PTH pad 2 [AUDIO_IN_R] of J3
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(69.6500 mm, 50.0000 mm): PTH pad 1 [MIX_L] of U2
+    @(69.2700 mm, 58.0000 mm): PTH pad 2 [MIX_L] of R5
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(73.2700 mm, 33.0000 mm): PTH pad 2 [MIX_L] of C3
+    @(69.6500 mm, 50.0000 mm): PTH pad 1 [MIX_L] of U2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(69.2700 mm, 64.0000 mm): PTH pad 2 [MIX_R] of R6
+    @(72.1900 mm, 50.0000 mm): PTH pad 2 [MIX_R] of U2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(72.1900 mm, 50.0000 mm): PTH pad 2 [MIX_R] of U2
+    @(73.2700 mm, 40.0000 mm): PTH pad 2 [MIX_R] of R7
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(74.7300 mm, 50.0000 mm): PTH pad 3 [LINE_OUT_L] of U2
+    @(86.7300 mm, 61.0000 mm): PTH pad 1 [LINE_OUT_L] of J4
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(85.4600 mm, 34.0000 mm): PTH pad 1 [LINE_OUT_L] of J2
+    @(74.7300 mm, 50.0000 mm): PTH pad 3 [LINE_OUT_L] of U2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(77.2700 mm, 50.0000 mm): PTH pad 4 [LINE_OUT_R] of U2
+    @(89.2700 mm, 61.0000 mm): PTH pad 2 [LINE_OUT_R] of J4
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(88.0000 mm, 34.0000 mm): PTH pad 2 [LINE_OUT_R] of J2
+    @(77.2700 mm, 50.0000 mm): PTH pad 4 [LINE_OUT_R] of U2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(19.7300 mm, 25.0000 mm): PTH pad 1 [RX_DIV] of R2
+    @(22.2700 mm, 18.0000 mm): PTH pad 2 [RX_DIV] of R1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(70.7300 mm, 26.0000 mm): PTH pad 1 [PWM_F1] of R4
+    @(76.7300 mm, 24.0000 mm): PTH pad 1 [PWM_F1] of C1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(76.7300 mm, 24.0000 mm): PTH pad 1 [PWM_F1] of C1
+    @(73.2700 mm, 19.0000 mm): PTH pad 2 [PWM_F1] of R3
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(70.7300 mm, 33.0000 mm): PTH pad 1 [PWM_F2] of C3
+    @(70.7300 mm, 40.0000 mm): PTH pad 1 [PWM_F2] of R7
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(73.2700 mm, 26.0000 mm): PTH pad 2 [PWM_F2] of R4
+    @(70.7300 mm, 33.0000 mm): PTH pad 1 [PWM_F2] of C3
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(80.7300 mm, 30.0000 mm): PTH pad 1 [PWM_F2] of C2
+    @(73.2700 mm, 26.0000 mm): PTH pad 2 [PWM_F2] of R4
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **
