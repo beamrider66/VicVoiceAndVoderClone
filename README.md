@@ -25,8 +25,8 @@ are held in RAM and reset restores the defaults. The USB console runs at
 to the connection that sent the command. `-demo` is a one-shot test and
 preserves the serial settings and learned slots.
 
-The combined interface retains the source project's VIC-Voice protocol
-approximation and **SC-01 compact phone numbering**, plus the basic text and
+The combined interface provides VIC-Voice-style controls and **SC-01 compact
+phone numbering**, plus the basic text and
 baud commands documented in the [VIC-Voder user's guide](https://www.geocities.ws/cbm/vic-voder/vic-voder-manual.pdf).
 It does not implement the original SP0256 phone set or reproduce VIC-Voder's
 Festival voice or Linux features. Combining the controls also means command
@@ -73,9 +73,9 @@ pio device monitor
 ```
 
 The default build environment is `esp32dev`. The Espressif32 platform is pinned
-to `7.0.1`, the version installed for the working source project. PlatformIO
+to `7.0.1`, the pinned build version. PlatformIO
 automatically downloads Phil Schatzmann's `arduino-audio-driver` at **v0.1.3**,
-the same codec library version as that project. No filesystem image, Wi-Fi
+the same codec library version used by the firmware. No filesystem image, Wi-Fi
 configuration or separately downloaded speech library is required.
 
 The available builds use 4 MB flash layouts and the board's USB-to-UART port:
@@ -156,7 +156,7 @@ slots. This packaging process does not flash a connected device.
 ## Wiring
 
 Connect the speaker to the Audio-Kit's **labelled speaker terminals**. The
-headphone output is enabled as well. This uses the source project's ES8388
+headphone output is enabled as well. This uses the documented ES8388
 Audio-Kit pin layout (`AudioKitEs8388V1` in the driver), including the required
 master clock. The internal board connections are:
 
@@ -170,7 +170,7 @@ master clock. The internal board connections are:
 | Speaker amplifier enable | GPIO 21 |
 
 Audio is **44.1 kHz, signed 16-bit stereo**, preserving the full SC-01 PCM
-sample values and the source Audio-Kit build's playback timing. Startup volume
+sample values and the documented Audio-Kit playback timing. Startup volume
 is **48%**, adjustable with `audioVolumePercent` in
 [`include/config.h`](include/config.h). GPIO25 carries the codec's digital
 word clock, not analog audio. Audio-Kit buttons, SD and audio capture are unused.
@@ -219,7 +219,7 @@ The VIC interface retains its existing wiring:
 | VIC user-port B and C, received data / receive interrupt | GPIO 5, UART2 TX, connected to both |
 | VIC user-port A or N, signal ground | GND |
 
-Use the existing interface circuitry. For the RX divider, the source project
+Use the documented interface circuitry. For the RX divider, the firmware
 uses 10 kOhm from user-port M to GPIO 18 and 18 kOhm from GPIO 18 to ground.
 Connect grounds and power the ESP32 separately over USB. This is a TTL
 user-port connection, not the round IEC bus or a PC's RS-232 voltage interface.
@@ -460,7 +460,7 @@ letters without changing compact phoneme bytes.
 | `ESC`, `0x17` | Disable the inactivity timer until reset |
 | `ESC`, `0x18` | Restart the ESP32 |
 
-The inherited PETSCII letter conversion, cursor-sequence consumption and
+The VVVC PETSCII letter conversion, cursor-sequence consumption and
 single-device cascade responses are retained. There is no multi-device chain.
 NUL stops the current phrase while preserving subsequently received input;
 physical BREAK handling depends on the UART reporting it as NUL.
@@ -524,11 +524,9 @@ parser, compare their packed phonemes/inflections, and recall a loaded phrase
 from the VIC port. Loader checks cover acknowledgements, verification, errors,
 reset detection, old firmware rejection and selection of individual phrases.
 
-The SAM voice generator, voice controls, compatibility audio wrapper,
-ESP8266 targets, built-in Wizard of Wor playback and unused filesystem /
-network settings were removed. English conversion uses a standalone,
-malloc-free **text-to-phoneme converter** built on a 1,288-entry transcription
+English conversion uses a standalone, malloc-free **text-to-phoneme converter**
+built on a 1,288-entry transcription
 of the Votrax SC-01 Phonetic Dictionary, a small exact-word override table, the
 public-domain NRL letter-to-sound rules and the NRL/Votrax IPA-to-SC-01 mapping
-(with number expansion) and bounded output; there is no SAM voice library or
-SAM audio synthesis. See [`THIRD_PARTY.md`](THIRD_PARTY.md) for provenance.
+(with number expansion) and bounded output. See [`THIRD_PARTY.md`](THIRD_PARTY.md)
+for provenance.

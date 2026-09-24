@@ -304,7 +304,7 @@ def build():
         ["Control reference, troubleshooting and sources", "10-11"],
         ["All 75 Wizard of Wor phrase numbers", "12-13"],
     ], [WIDTH - 65, 65], size=9.3, padding=3)
-    g.para("<b>Review status:</b> the previous build's audio, USB speech and 75 Wizard "
+    g.para("<b>Review status:</b> audio, USB speech and 75 Wizard "
            "slots were tested on the board. This revision shares every dash command "
            "between USB and VIC, with host tests passing. Upload the revised firmware "
            "before testing those commands; the VIC cable and BASIC examples still await "
@@ -377,7 +377,7 @@ def build():
     g.para("The firmware starts with empty slots. <b>tools/learn_wizard.py</b> loads all "
            "75 catalog entries into slots 1-75, preserving the original numbering, phonemes "
            "and inflection. Slots 76-80 are left alone. The catalog is included in the "
-           "project; the old source project is not needed.")
+           "catalog; no other project is needed.")
     g.h2("Load the whole catalog")
     g.para("Close the serial terminal first. In the VVVC project folder, run:")
     g.code("python -m pip install -r tools/requirements.txt\npython tools/learn_wizard.py --port COM3")
@@ -444,7 +444,7 @@ def build():
         ["C", "PB0 - received data", "The same GPIO5 TX signal as B"],
         ["A or N", "Ground", "ESP32 GND and divider ground"],
     ], [70, 168, WIDTH - 238], size=9.6)
-    g.h2("Parts for the inherited minimal interface")
+    g.h2("Parts for the minimal interface")
     g.para("A correctly keyed 24-contact (2 x 12) VIC user-port connector; short insulated "
            "wire; one 10 kOhm resistor and one 18 kOhm resistor (1%, 0.25 W are suitable); "
            "optionally two 470 Ohm series resistors for the return branches; insulation "
@@ -482,7 +482,7 @@ def build():
     g.h2("Return data needs both B and C")
     g.para("GPIO5 feeds the VIC's data input C and interrupt input B. The optional "
            "470 Ohm resistors limit contention current; they are not level shifters. "
-           "This inherited minimal circuit assumes the VIC's fitted VIA accepts a 3.3 V "
+           "This minimal circuit assumes the VIC's fitted VIA accepts a 3.3 V "
            "logic high. Verify this when a VIA has been replaced or return data is unreliable.")
     g.box("Check actual levels before the first run", "With the divider junction still "
           "disconnected from GPIO18, check the idle high after opening the VIC channel. "
@@ -575,7 +575,7 @@ def build():
     g.para("Firmware reference: this project's README, include/config.h, src/main.cpp, "
            "src/vic_serial.cpp, src/serial_commands.cpp and phrase-bank commands; Wizard labels from "
            "tools/data/wizard_of_wor.json. The diagrams are redrawn for this guide. "
-           "The divider and GPIO mapping come from the inherited project circuit. "
+           "The divider and GPIO mapping are the documented VVVC interface. "
            "Document revision: <b>2026-09-24, revision 3, review draft</b>.", size=9.1)
     g.h2("GPIO PWM filter")
     g.para("Use a high-impedance amplifier input (47 kOhm or greater). Start with low volume. The 1 kOhm / 22 nF and 4.7 kOhm / 4.7 nF stages attenuate the carrier; the 1 uF film capacitor removes the 50% idle DC level:")
