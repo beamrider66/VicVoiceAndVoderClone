@@ -1,0 +1,12 @@
+{
+  "version": "2026.09.24-4d01b46",
+  "source_commit": "4d01b46",
+  "firmware_sources_modified": false,
+  "built_utc": "2026-09-24T10:44:40.313684+00:00",
+  "firmware": "firmware/vvvc-8982aad5107b84ea.bin",
+  "sha256": "8982aad5107b84ea13b082eedc7c857a23ce43b69952f6a9d9e36f46c3b11e2a",
+  "bytes": 515040,
+  "esp_web_tools": "10.4.0",
+  "board": "ESP32 Audio-Kit, ES8388, 4MB",
+  "flash_offset": 0
+}

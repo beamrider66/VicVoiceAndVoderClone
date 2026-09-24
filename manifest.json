@@ -1,0 +1,18 @@
+{
+  "name": "VVVC",
+  "version": "2026.09.24-4d01b46",
+  "new_install_prompt_erase": true,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "improv": false,
+      "parts": [
+        {
+          "path": "firmware/vvvc-8982aad5107b84ea.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
