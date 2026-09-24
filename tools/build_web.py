@@ -13,10 +13,10 @@ import urllib.request
 ROOT = Path(__file__).resolve().parents[1]
 PIO_HOME = Path.home() / '.platformio'
 TOOL_VERSION = '10.4.0'
-TARGETS = [('esp32dev', 'esp32', 'ESP32', 0x1000, 22),
-           ('esp32c3', 'esp32c3', 'ESP32-C3', 0, 4),
-           ('esp32s2', 'esp32s2', 'ESP32-S2', 0x1000, 4),
-           ('esp32s3', 'esp32s3', 'ESP32-S3', 0, 4)]
+TARGETS = [('esp32dev', 'esp32', 'ESP32', 0x1000, 22, 'dio', '40m'),
+           ('esp32c3', 'esp32c3', 'ESP32-C3', 0, 4, 'qio', '80m'),
+           ('esp32s2', 'esp32s2', 'ESP32-S2', 0x1000, 4, 'qio', '80m'),
+           ('esp32s3', 'esp32s3', 'ESP32-S3', 0, 4, 'qio', '80m')]
 INTEGRITY = '3pwkeFFm5Fj7UQo8SJNYK5RXrtNCpq6X9QoI6bMT4GBZWgrJqjn0YvM9ihG74BtMoSFYXfmDtkehuxe50PTMPQ=='
 
 
@@ -51,18 +51,17 @@ def main():
     version = f'{datetime.now(timezone.utc):%Y.%m.%d}-{commit}' + ('-modified' if dirty else '')
     builds, images = [], []
     (output / 'firmware').mkdir(exist_ok=True)
-    for env, chip, family, boot_offset, pwm_pin in TARGETS:
+    for env, chip, family, boot_offset, pwm_pin, flash_mode, flash_freq in TARGETS:
         artifacts = ROOT / '.pio/build' / env
         merged = deps / f'{env}-merged.bin'
         run(python, PIO_HOME / 'packages/tool-esptoolpy/esptool.py', '--chip', chip,
-            'merge_bin', '-o', merged, '--flash_mode', 'dio', '--flash_freq', '40m',
+            'merge_bin', '-o', merged, '--flash_mode', flash_mode, '--flash_freq', flash_freq,
             '--flash_size', '4MB', hex(boot_offset), artifacts / 'bootloader.bin',
             '0x8000', artifacts / 'partitions.bin', '0xe000',
             PIO_HOME / 'packages/framework-arduinoespressif32/tools/partitions/boot_app0.bin',
             '0x10000', artifacts / 'firmware.bin')
         data = merged.read_bytes()
         assert data[boot_offset] == 0xE9 and data[0x10000] == 0xE9
-        assert data[boot_offset+2:boot_offset+4] == bytes([2, 0x20]), 'Expected DIO/4MB/40MHz'
         digest = hashlib.sha256(data).hexdigest()
         path = f'firmware/vvvc-{chip}-{digest[:16]}.bin'
         (output / path).write_bytes(data)

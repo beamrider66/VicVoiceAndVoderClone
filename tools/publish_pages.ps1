@@ -5,6 +5,8 @@ $checkout = Join-Path $projectRoot 'build\project-pages-publish'
 
 Push-Location $projectRoot
 try {
+    python tools/build_user_guide.py
+    if ($LASTEXITCODE -ne 0) { throw 'Guide build failed.' }
     python tools/build_web.py
     if ($LASTEXITCODE -ne 0) { throw 'Installer build failed.' }
     if (-not (Test-Path -LiteralPath (Join-Path $checkout '.git'))) {

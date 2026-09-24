@@ -275,22 +275,23 @@ def build():
     g = Guide()
     g.start("Start here", "VVVC", "Vic Voice and Voder Clone  |  End-user and VIC-20 wiring guide")
     g.para("Make your VIC speak", size=21, font=BOLD, color=NAVY, after=12)
-    g.para("VVVC runs a software approximation of the Votrax SC-01 on an ESP32 Audio-Kit "
-           "with an ES8388 codec. It speaks English text or SC-01 phonemes, and can learn "
+    g.para("VVVC runs a software approximation of the Votrax SC-01 on ESP32 boards. The same "
+           "speech feeds an always-on GPIO PWM output and, on the original Audio-Kit, its "
+           "ES8388 codec. It speaks English text or SC-01 phonemes, and can learn "
            "phrases in numbered RAM slots for later recall.")
     g.box("One interface, one voice", "VIC-Voice-style controls and VIC-Voder-style baud commands "
           "share the same speech engine. There is no mode selector. Board keys have no assigned "
           "function; reset restarts the firmware and clears learned phrases.")
     g.h2("Start with the board alone")
-    g.para("<b>1.</b> Connect a suitable speaker to a labelled speaker output, or use the "
-           "EARPHONE jack. Power the Audio-Kit through USB.<br/>"
+    g.para("<b>1.</b> On an Audio-Kit, connect a suitable speaker to a labelled speaker output, or use the "
+           "EARPHONE jack. On any other ESP32, connect the PWM pin through the filter on page 10 to an amplifier. Power the board through USB.<br/>"
            "<b>2.</b> Listen for the 880 Hz and 440 Hz startup tones. They check the audio "
            "output path without a VIC or terminal.<br/>"
            "<b>3.</b> For a speech check, send <b>-demo</b> through the USB serial console "
            "at 115200 baud. See page 2.")
     g.table(["Setting", "Current firmware"], [
-        ["Hardware", "ESP32 Audio-Kit with ES8388; built-in DAC and speaker amplifier"],
-        ["Audio", "44.1 kHz, 16-bit; same mono signal on both channels; volume 48%"],
+        ["Hardware", "ESP32 / C3 / S2 / S3; Audio-Kit ES8388 is optional"],
+        ["Audio", "Always-on 8-bit PWM: GPIO22 (ESP32), GPIO4 (C3/S2/S3); ES8388 is 16-bit"],
         ["USB console", "115200 baud, 8 data bits, no parity, 1 stop bit; no flow control"],
         ["VIC connection", "2400 baud, 8N1; GPIO18 receive, GPIO5 transmit"],
         ["Learning", "80 shared RAM slots; up to 256 SC-01 phonemes per slot"],
@@ -561,18 +562,26 @@ def build():
         ["VIC fails, USB works", "Use pages 6-9: ground, divider, M/B/C, RX/TX directions, voltage levels, and matching baud rates."],
         ["VIC help/list output is incomplete", "Read -help and -slots replies as they arrive. Long output can overrun the VIC receive buffer if BASIC cannot keep up; USB is useful for inspection."],
     ], [126, WIDTH - 126], size=9.2, padding=5)
+    g.start("D / Technical", "Audio outputs and compatibility", "The GPIO signal is available on every supported build; the Audio-Kit codec is optional.")
     g.h2("Audio and compatibility notes")
-    g.para("Use an ES8388 Audio-Kit with the documented layout, not an AC101 board or "
+    g.para("The original ESP32 build detects an ES8388 Audio-Kit and also drives GPIO22. C3, S2 and S3 builds drive GPIO4. "
+           "The PWM signal is 8-bit at a 156.25 kHz carrier and needs the filter and external amplifier below. Never connect a speaker directly to GPIO. "
+           "Use an ES8388 Audio-Kit with the documented layout, not an AC101 board or "
            "bare DevKit. Internal codec pins are SCL32, SDA33, MCLK0, BCLK27, LRCLK25, "
            "data26 and amplifier-enable21. No rewiring of those internal connections is "
            "needed. The voice is an SC-01 approximation, with inherited English spelling "
-           "rules; it is not a ROM-exact Type 'n Talk or the original VIC-Voder voice.", size=9.5)
+           "rules; it is not a ROM-exact Type 'n Talk or the original VIC-Voder voice.", size=8.8)
     g.h2("Sources and version")
     g.para("Firmware reference: this project's README, include/config.h, src/main.cpp, "
            "src/vic_serial.cpp, src/serial_commands.cpp and phrase-bank commands; Wizard labels from "
            "tools/data/wizard_of_wor.json. The diagrams are redrawn for this guide. "
            "The divider and GPIO mapping come from the inherited project circuit. "
-           "Document revision: <b>2026-09-18, revision 2, review draft</b>.", size=9.1)
+           "Document revision: <b>2026-09-24, revision 3, review draft</b>.", size=9.1)
+    g.h2("GPIO PWM filter")
+    g.para("Use a high-impedance amplifier input (47 kOhm or greater). Start with low volume. The 1 kOhm / 22 nF and 4.7 kOhm / 4.7 nF stages attenuate the carrier; the 1 uF film capacitor removes the 50% idle DC level:")
+    g.code("PWM GPIO -- 1k --+-- 4.7k --+-- 1uF film -- amplifier input\n"
+            "                |         |\n                22nF      4.7nF\n"
+            "                |         |\nGND -------------+---------+-------------- amplifier ground", size=9.2)
     g.para('[1] Commodore, <b>VIC-20 Personal Computing Guide</b>, printed p. 152, user-port contacts. '
            '<link href="https://www.vic-20.it/wp-content/uploads/2021/01/VIC-20_Personal_Computing_Guide.pdf" color="#087E86">Read the scanned manual</link>.<br/>'
            '[2] Commodore, <b>VIC-20 Programmer\'s Reference Guide</b>, pp. 176 and 251-256; pin functions, serial buffers, OPEN and GET#. '
@@ -580,7 +589,7 @@ def build():
            '[3] Espressif, <b>ESP32 Series Datasheet</b>, DC input characteristics. '
            '<link href="https://documentation.espressif.com/esp32_datasheet_en.html" color="#087E86">Read the manufacturer datasheet</link>.<br/>'
            'Board family: <link href="https://github.com/Ai-Thinker-Open/ESP32-A1S-AudioKit" color="#087E86">Ai-Thinker Audio-Kit documentation</link>. '
-           'Code and third-party provenance: THIRD_PARTY.md in the project.', size=8.9, leading=12.8)
+           'Code and third-party provenance: THIRD_PARTY.md in the project.', size=8.1, leading=10.2)
     g.box("Release gate", "The revised shared commands have passed host tests. Earlier "
           "audio and USB functions were tested on the board. Upload this revision and "
           "verify the VIC link, connector orientation and BASIC examples before release.", warning=True)
