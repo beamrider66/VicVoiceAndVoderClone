@@ -5,7 +5,8 @@ OUT = Path(__file__).with_name("VVVC_UserPort_Audio.kicad_pcb")
 
 NETS = ["GND", "+5V_USB", "+3V3", "VIC_RX", "VIC_TX",
         "PWM_AUDIO", "AUDIO_IN_L", "AUDIO_IN_R", "MIX_L", "MIX_R",
-        "LINE_OUT_L", "LINE_OUT_R", "HP_OUT_L", "HP_OUT_R", "RX_DIV",
+        "BUF_L", "BUF_R", "VOL_L", "VOL_R", "LINE_OUT_L", "LINE_OUT_R",
+        "HP_OUT_L", "HP_OUT_R", "RX_DIV",
         "PWM_F1", "PWM_F2"]
 N = {name: i + 1 for i, name in enumerate(NETS)}
 
@@ -95,9 +96,10 @@ def build():
     add_component(lines, "MIX_IN_R", "R6", "10k", 68, 64, ["AUDIO_IN_R", "MIX_R"])
     add_component(lines, "MIX_SPEECH_R", "R7", "10k", 72, 40, ["PWM_F2", "MIX_R"])
     add_component(lines, "RCA_INPUT", "J3", "RCA IN L/R", 88, 48, ["AUDIO_IN_L", "AUDIO_IN_R"], 2)
-    add_component(lines, "RCA_OUTPUT", "J4", "RCA OUT L/R", 88, 61, ["LINE_OUT_L", "LINE_OUT_R"], 2)
-    add_component(lines, "HEADPHONE", "J2", "3.5mm TRS", 88, 34, ["LINE_OUT_L", "LINE_OUT_R", "GND"], 3)
-    add_component(lines, "AUDIO_BUFFER", "U2", "NJM4556D / OPA1678", 76, 50, ["MIX_L", "MIX_R", "LINE_OUT_L", "LINE_OUT_R", "+5V_USB", "GND"], 6)
+    add_component(lines, "RCA_OUTPUT", "J4", "RCA OUT L/R", 88, 61, ["VOL_L", "VOL_R"], 2)
+    add_component(lines, "HEADPHONE", "J2", "3.5mm TRS", 88, 34, ["VOL_L", "VOL_R", "GND"], 3)
+    add_component(lines, "AUDIO_BUFFER", "U2", "NJM4556D / OPA1678", 76, 50, ["MIX_L", "MIX_R", "BUF_L", "BUF_R", "+5V_USB", "GND"], 6)
+    add_component(lines, "VOLUME_DUAL_GANG", "RV1", "DUAL 10k AUDIO VOLUME", 85, 42, ["BUF_L", "VOL_L", "GND", "BUF_R", "VOL_R", "GND"], 6)
     for ref, x, y in (("H1", 8, 22), ("H2", 92, 22), ("H3", 8, 72), ("H4", 92, 72)):
         lines += fp_start("MOUNT_HOLE_3V2", ref, "STANDOFF", x, y)
         lines += ['  (pad "" np_thru_hole circle (at 0 0) (size 5 5) (drill 3.2) (layers "*.Cu" "*.Mask"))', '  (fp_circle (center 0 0) (end 2.8 0) (stroke (width 0.3) (type default)) (fill none) (layer "F.SilkS"))', ')']
@@ -107,6 +109,7 @@ def build():
         lines.append(f'  (gr_line (start {x1} {y1}) (end {x2} {y2}) (stroke (width 0.3) (type default)) (layer "Edge.Cuts"))')
     lines += ['  (gr_text "VVVC USER-PORT AUDIO CARRIER" (at 50 75) (layer "F.SilkS") (effects (font (size 2 2) (thickness 0.3))))',
               '  (gr_text "GPIO22 PWM  |  M -> RX  |  B/C <- TX  |  USB 5V POWER" (at 50 70) (layer "F.SilkS") (effects (font (size 1.2 1.2) (thickness 0.2))))',
+              '  (gr_text "VOLUME" (at 85 38) (layer "F.SilkS") (effects (font (size 1.2 1.2) (thickness 0.2))))',
               '  (gr_text "INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP" (at 50 12) (layer "F.SilkS") (effects (font (size 1.1 1.1) (thickness 0.18))))']
     # Deliberately leave the board unrouted.  The footprints and net names are
     # the reusable placement/netlist draft; routing must be completed and

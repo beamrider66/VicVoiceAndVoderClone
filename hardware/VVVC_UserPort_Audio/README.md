@@ -11,6 +11,9 @@ out the audio and serial interface:
 - GPIO22 PWM speech output on the original ESP32, through a two-stage filter.
 - 3.5 mm stereo jack for the mixed line/headphone output.
 - RCA input for VIC audio and RCA output for the mixed VIC + speech signal.
+- Dual-gang 10 kOhm audio volume wheel after the buffer. It attenuates the
+  headphone and RCA outputs together so the speech level can be matched to the
+  VIC audio.
 - Four 3.2 mm plated mounting holes on a 100 mm x 80 mm carrier outline for a
   future enclosure. Hole centers are (8,22), (92,22), (8,72), (92,72) mm.
 - USB power through the ESP32 DevKit. Its USB 5 V pin feeds the carrier audio
@@ -22,11 +25,17 @@ out the audio and serial interface:
   using the carrier.
 
 The audio section mixes the stereo RCA input with the filtered mono speech
-signal, then sends the buffered stereo result to both the RCA output and the
-3.5 mm jack. It is intended for powered speakers or a headphone-capable
+signal, then sends the buffered stereo result through RV1 to both the RCA
+output and the 3.5 mm jack. It is intended for powered speakers or a headphone-capable
 amplifier. The ESP32 GPIO must never drive headphones directly. Fit the
 optional NJM4556/OPA1678-class audio buffer and choose a headphone-safe supply
 before connecting low-impedance headphones.
+
+The enclosure should leave the ESP32 USB connector accessible at the top edge,
+the 3.5 mm and RCA connectors accessible at the right edge, and a panel opening
+for RV1's shaft/wheel beside those connectors. The 100 x 80 mm outline and the
+four standoff centers in the netlist are the starting points for an enclosure;
+check the actual connector bodies and shaft height against the parts purchased.
 
 The generated board is a placement/netlist draft. It intentionally has no
 copper routing because the final ESP32 header, audio buffer package, and jack
