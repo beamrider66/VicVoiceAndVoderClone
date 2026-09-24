@@ -13,13 +13,13 @@ out the audio and serial interface:
 - RCA input for VIC audio and RCA output for the mixed VIC + speech signal.
 - Four 3.2 mm plated mounting holes on a 100 mm x 80 mm carrier outline for a
   future enclosure. Hole centers are (8,22), (92,22), (8,72), (92,72) mm.
-- Fused/protected external +5 V input. The VIC 5 V pin is deliberately left
-  unconnected because the ESP32 can exceed the user-port's 100 mA budget. Use a
-  regulated 5 V supply rated for at least 1 A; do not connect two 5 V supplies
-  at once.
+- USB power through the ESP32 DevKit. Its USB 5 V pin feeds the carrier audio
+  circuitry and its onboard regulator supplies 3.3 V. The VIC 5 V pin is
+  deliberately left unconnected because the ESP32 can exceed the user-port's
+  100 mA budget.
 - This revision intentionally does not use or rectify the VIC's 9 VAC pins.
-  Leave the two 9 VAC contacts unused and power the carrier through the marked
-  5 V DC input.
+  Leave the two 9 VAC contacts unused and connect USB to the ESP32 board before
+  using the carrier.
 
 The audio section mixes the stereo RCA input with the filtered mono speech
 signal, then sends the buffered stereo result to both the RCA output and the
@@ -38,7 +38,8 @@ the physical user-port fit before ordering.
 
 The firmware interface uses M -> ESP32 GPIO18 (RX) through the 10 kOhm / 18 kOhm
 divider, and ESP32 GPIO5 (TX) -> B and C. A and N are signal ground. The card
-does not use the VIC 5 V or 9 VAC rails to power the ESP32. The edge labels are
+does not use the VIC 5 V or 9 VAC rails to power the ESP32; USB power enters
+through the DevKit's 5 V header pin. The edge labels are
 printed on the silkscreen. They are read from the component side with the
 insertion tongue pointing away from you; verify this orientation against the
 VIC service manual before inserting the card so the connector is not mirrored.

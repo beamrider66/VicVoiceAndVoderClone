@@ -16,6 +16,4 @@ C3,DC block,1uF film,PWM to mixer input
 R5,Audio mixer left,10k,RCA input left to MIX_L
 R6,Audio mixer right,10k,RCA input right to MIX_R
 R7,Speech mixer right,10k,Filtered PWM speech to MIX_R for mono speech in both channels
-J5,External power input,5V DC screw terminal or barrel jack,Regulated 5V 1A minimum; do not populate a VIC power link
-F1,Input protection,1A resettable fuse,External 5V input only
 H1-H4,Enclosure standoffs,3.2 mm plated holes,(8,22),(92,22),(8,72),(92,72) mm

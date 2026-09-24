@@ -3,7 +3,7 @@ from pathlib import Path
 
 OUT = Path(__file__).with_name("VVVC_UserPort_Audio.kicad_pcb")
 
-NETS = ["GND", "+5V_VIC", "+5V_USB", "+5V_SYS", "+3V3", "VIC_RX", "VIC_TX",
+NETS = ["GND", "+5V_USB", "+3V3", "VIC_RX", "VIC_TX",
         "PWM_AUDIO", "AUDIO_IN_L", "AUDIO_IN_R", "MIX_L", "MIX_R",
         "LINE_OUT_L", "LINE_OUT_R", "HP_OUT_L", "HP_OUT_R", "RX_DIV",
         "PWM_F1", "PWM_F2"]
@@ -58,7 +58,7 @@ def add_headers(lines):
     left = ["3V3", "EN", "VP", "VN", "IO34", "IO35", "IO32", "IO33", "IO25", "IO26", "IO27", "IO14", "IO12", "GND", "IO13", "IO9", "IO10", "IO11", "5V"]
     right = ["GND", "IO23", "IO22", "IO1", "IO3", "IO21", "IO19", "IO18", "IO5", "IO17", "IO16", "IO4", "IO0", "IO2", "IO15", "SD1", "SD0", "CLK", "GND"]
     for i, name in enumerate(left):
-        net = "+3V3" if name == "3V3" else "+5V_SYS" if name == "5V" else "GND" if name == "GND" else None
+        net = "+3V3" if name == "3V3" else "+5V_USB" if name == "5V" else "GND" if name == "GND" else None
         lines.append(pad(str(i + 1), -12.7, -22.86 + i * 2.54, net, size=2, drill=1))
         lines.append(f'  (fp_text user {q(name)} (at -15.8 {-22.86 + i * 2.54:.2f} 0) (layer "F.SilkS") (effects (font (size 0.75 0.75) (thickness 0.12))))')
     for i, name in enumerate(right):
@@ -97,8 +97,6 @@ def build():
     add_component(lines, "RCA_INPUT", "J3", "RCA IN L/R", 88, 48, ["AUDIO_IN_L", "AUDIO_IN_R"], 2)
     add_component(lines, "RCA_OUTPUT", "J4", "RCA OUT L/R", 88, 61, ["LINE_OUT_L", "LINE_OUT_R"], 2)
     add_component(lines, "HEADPHONE", "J2", "3.5mm TRS", 88, 34, ["LINE_OUT_L", "LINE_OUT_R", "GND"], 3)
-    add_component(lines, "POWER_IN", "J5", "5V DC IN", 85, 20, ["+5V_USB", "GND"], 2)
-    add_component(lines, "FUSE_1A", "F1", "PTC 1A", 82, 18, ["+5V_USB", "+5V_SYS"])
     add_component(lines, "AUDIO_BUFFER", "U2", "NJM4556D / OPA1678", 76, 50, ["MIX_L", "MIX_R", "LINE_OUT_L", "LINE_OUT_R", "+5V_USB", "GND"], 6)
     for ref, x, y in (("H1", 8, 22), ("H2", 92, 22), ("H3", 8, 72), ("H4", 92, 72)):
         lines += fp_start("MOUNT_HOLE_3V2", ref, "STANDOFF", x, y)
@@ -108,7 +106,7 @@ def build():
     for (x1, y1), (x2, y2) in zip(outline, outline[1:]):
         lines.append(f'  (gr_line (start {x1} {y1}) (end {x2} {y2}) (stroke (width 0.3) (type default)) (layer "Edge.Cuts"))')
     lines += ['  (gr_text "VVVC USER-PORT AUDIO CARRIER" (at 50 75) (layer "F.SilkS") (effects (font (size 2 2) (thickness 0.3))))',
-              '  (gr_text "GPIO22 PWM  |  M -> RX  |  B/C <- TX" (at 50 70) (layer "F.SilkS") (effects (font (size 1.2 1.2) (thickness 0.2))))',
+              '  (gr_text "GPIO22 PWM  |  M -> RX  |  B/C <- TX  |  USB 5V POWER" (at 50 70) (layer "F.SilkS") (effects (font (size 1.2 1.2) (thickness 0.2))))',
               '  (gr_text "INSERT THIS EDGE INTO VIC USER PORT - COMPONENT SIDE UP" (at 50 12) (layer "F.SilkS") (effects (font (size 1.1 1.1) (thickness 0.18))))']
     # Deliberately leave the board unrouted.  The footprints and net names are
     # the reusable placement/netlist draft; routing must be completed and
