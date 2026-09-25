@@ -15,7 +15,7 @@ from reportlab.platypus import Paragraph, Preformatted, Table, TableStyle
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "output/pdf/VVVC_User_and_VIC20_Wiring_Guide_v2.pdf"
-DATE = "18 September 2026 | Rev 2"
+DATE = "25 September 2026"
 NAVY = colors.HexColor("#17364A")
 TEAL = colors.HexColor("#087E86")
 INK = colors.HexColor("#243747")
@@ -50,7 +50,7 @@ class Guide:
         self.c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
         self.c.setTitle("VVVC - User and VIC-20 Wiring Guide")
         self.c.setAuthor("VVVC project")
-        self.c.setSubject("Review draft: operation, examples, RAM phrases and VIC-20 user-port wiring")
+        self.c.setSubject("VVVC operation, examples, phrase learning and VIC-20 user-port wiring")
         self.c.setKeywords("VVVC, VIC-20, ESP32, ES8388, SC-01, wiring, user guide")
         self.c.setViewerPreference("DisplayDocTitle", "true")
         self.page = 0
@@ -68,11 +68,11 @@ class Guide:
         c.drawString(LEFT, PAGE_H - 30, "VVVC  /  " + section.upper())
         c.setFont(BODY, 8)
         c.setFillColor(MUTED)
-        c.drawRightString(PAGE_W - LEFT, PAGE_H - 30, "REVIEW DRAFT  |  " + DATE)
+        c.drawRightString(PAGE_W - LEFT, PAGE_H - 30, "USER GUIDE  |  " + DATE)
         c.setStrokeColor(LINE)
         c.line(LEFT, 36, PAGE_W - LEFT, 36)
         c.setFont(BODY, 8)
-        c.drawString(LEFT, 23, "Vic Voice and Voder Clone  |  VIC hardware validation pending")
+        c.drawString(LEFT, 23, "Vic Voice and Voder Clone  |  VIC-20 User Guide")
         c.drawRightString(PAGE_W - LEFT, 23, str(self.page))
         key = "page" + str(self.page)
         c.bookmarkPage(key)
@@ -279,12 +279,11 @@ def build():
            "speech feeds an always-on GPIO PWM output and, on the original Audio-Kit, its "
            "ES8388 codec. It speaks English text or SC-01 phonemes, and can learn "
            "phrases in numbered RAM slots for later recall.")
-    g.box("One interface, one voice", "VIC-Voice-style controls and VIC-Voder-style baud commands "
-          "share the same speech engine. There is no mode selector. Board keys have no assigned "
-          "function; reset restarts the firmware and clears learned phrases.")
+    g.box("One shared speech interface", "Send plain text, phonemes or phrase commands through the same connection. "
+          "There is no mode selector. Board keys have no assigned function; reset restarts the firmware and clears learned phrases.")
     g.h2("Start with the board alone")
     g.para("<b>1.</b> On an Audio-Kit, connect a suitable speaker to a labelled speaker output, or use the "
-           "EARPHONE jack. On any other ESP32, connect the PWM pin through the filter on page 10 to an amplifier. Power the board through USB.<br/>"
+           "EARPHONE jack. On any other ESP32, connect the PWM pin through the filter on page 12 to an amplifier. Power the board through USB.<br/>"
            "<b>2.</b> Listen for the 880 Hz and 440 Hz startup tones. They check the audio "
            "output path without a VIC or terminal.<br/>"
            "<b>3.</b> For a speech check, send <b>-demo</b> through the USB serial console "
@@ -301,21 +300,16 @@ def build():
         ["USB speech, learning and Wizard of Wor", "2-4"],
         ["VIC BASIC examples", "5"],
         ["VIC-20 wiring, connector views and first tests", "6-9"],
-        ["Control reference, troubleshooting and sources", "10-11"],
-        ["All 75 Wizard of Wor phrase numbers", "12-13"],
+        ["Controls and troubleshooting", "10-11"],
+        ["GPIO audio output", "12"],
+        ["All 75 Wizard of Wor phrase numbers", "13-14"],
     ], [WIDTH - 65, 65], size=9.3, padding=3)
-    g.para("<b>Review status:</b> audio, USB speech and 75 Wizard "
-           "slots were tested on the board. This revision shares every dash command "
-           "between USB and VIC, with host tests passing. Upload the revised firmware "
-           "before testing those commands; the VIC cable and BASIC examples still await "
-           "hardware validation.", size=9.4, color=MUTED)
 
     g.start("A / Everyday use", "USB speech and phonemes", "Use the Audio-Kit's USB-to-UART connection to send commands from a computer.")
     g.h2("Open a terminal")
     g.para("Choose the board's serial port and set <b>115200 baud, 8N1, no flow control</b>. "
-           "Send a CR or LF when you press Enter. COM3 was used during this project's test; "
-           "your computer may assign a different port. Only one terminal or loader can use "
-           "that port at a time.")
+           "Send a CR or LF when you press Enter. Your computer may show the port as COM3, "
+           "COM4 or another name. Only one terminal or loader can use that port at a time.")
     g.para("With Python installed, run the first line once, then open a terminal. "
            "Local echo shows what you type:")
     g.code("python -m pip install pyserial==3.5\npython -m serial.tools.list_ports\npython -m serial.tools.miniterm --dtr 0 --rts 0 -e COM3 115200", size=9.3)
@@ -376,8 +370,8 @@ def build():
     g.start("A / Everyday use", "Load Wizard of Wor", "The supplied host script teaches the original catalog through normal learning commands.")
     g.para("The firmware starts with empty slots. <b>tools/learn_wizard.py</b> loads all "
            "75 catalog entries into slots 1-75, preserving the original numbering, phonemes "
-           "and inflection. Slots 76-80 are left alone. The catalog is included in the "
-           "catalog; no other project is needed.")
+           "and inflection. Slots 76-80 are left alone. The complete catalog is included "
+           "with VVVC; no separate phrase source is needed.")
     g.h2("Load the whole catalog")
     g.para("Close the serial terminal first. In the VVVC project folder, run:")
     g.code("python -m pip install -r tools/requirements.txt\npython tools/learn_wizard.py --port COM3")
@@ -397,11 +391,11 @@ def build():
         ["-play 55", "Welcome, to my world of wor."],
     ], [87, WIDTH - 87])
     g.para("These are the original catalog labels, including their spelling. The full "
-           "number list is on pages 12-13. Recall works from either connection; there is "
+           "number list is on pages 13-14. Recall works from either connection; there is "
            "no separate Wizard mode or background random playback.")
     g.box("Keep the board powered", "Reload after an ESP32 reset. Some terminal programs "
           "reset the board when they connect; --play lets you test without reopening a "
-          "terminal. The loader needs an 80-slot build to hold the full catalog.")
+          "terminal. Older VVVC firmware with fewer than 75 slots cannot hold the full catalog.")
 
     g.start("B / VIC examples", "Speak from VIC BASIC", "Complete the wiring checks on pages 6-9 before connecting the computer.")
     g.para("Device <b>2</b> is the VIC's user-port serial channel. CHR$(10) selects "
@@ -517,9 +511,6 @@ def build():
            "<b>Intermittent results:</b> shorten leads and check logic levels. A properly "
            "specified non-inverting 5 V/3.3 V serial level interface is preferable to "
            "guessing resistor changes.")
-    g.box("Before releasing this guide", "Confirm text speech, the two-way learning test, "
-          "compact phonemes, and 1200/2400 baud changes on the actual VIC. Record the "
-          "Audio-Kit revision and any interface changes alongside the results.")
 
     g.start("D / Reference", "VIC controls and baud rates", "Escape controls are VIC-port bytes, not USB terminal commands.")
     g.table(["Bytes", "BASIC value after CHR$(27)", "Action"], [
@@ -543,43 +534,25 @@ def build():
            "SET TTY HI at 1200, close, then reopen with CHR$(10). Baud changes preserve "
            "the phrase bank; an ESP32 reset restores 2400 and clears it.")
     g.h2("Framing and flow")
-    g.para("CR or LF ends a line. The VIC buffer holds 768 bytes including the terminator; "
-           "ordinary unfinished input is processed after four idle seconds. Learning "
-           "and all other dash commands need a terminator and are rejected if incomplete. There is "
-           "no hardware flow control: wait for replies and pace long speech requests.")
-    g.para("A NUL byte stops active speech without deleting learned phrases. A physical "
-           "BREAK depends on the UART reporting it as NUL. Compact phoneme blocks start "
-           "with pi (0xDE or 0xFF) or ASCII ~ and end with ?. Use CHR$ for exact byte values "
-           "when typing from the VIC.", size=9.6)
+    g.para("Press RETURN to end a line. There is no hardware flow control, so wait for "
+           "replies and let speech finish before sending the next request. Commands must "
+           "end with RETURN. For compact phoneme blocks, use CHR$ for exact byte values.", size=9.6)
 
-    g.start("D / Reference", "Troubleshooting and sources", "Use the simplest working test to narrow down a problem.")
+    g.start("D / Reference", "Troubleshooting", "Use the simplest working test to narrow down a problem.")
     g.table(["Symptom", "Check"], [
-        ["No startup tones", "Board power, speaker connector or EARPHONE jack, and an ES8388 board matching the firmware. Read USB startup messages if available."],
+        ["No startup tones", "Check USB power and the speaker or EARPHONE connection. Use a supported ES8388 Audio-Kit for codec audio."],
         ["Tones work, speech does not", "Try -demo over USB. For ordinary VIC text, turn PSEND off. Use valid named phones or a previously learned slot."],
         ["ERROR n EMPTY SLOT", "Reload after reset. Wizard data is supplied by the host script; it is not built into the firmware."],
-        ["Cannot open COM port", "Close other terminals, loaders or browser serial sessions. Use a USB data cable and the correct USB-to-UART port."],
+        ["Cannot open COM port", "Close other terminals or flashing tools. Use a USB data cable and the board's USB-to-UART port."],
         ["Learn failed / line too long", "Keep the whole USB line within 253 bytes. A slot allows 256 phones. Check the format word and wait for each reply."],
         ["VIC fails, USB works", "Use pages 6-9: ground, divider, M/B/C, RX/TX directions, voltage levels, and matching baud rates."],
         ["Scott Adams on Mega-Cart", "After loading the game from the Mega-Cart menu, hold F1 while pressing the Mega-Cart reset button. Then enter SYS32592 and press RETURN. This initializes the VIC's KERNAL serial routines; without it, speech output can be corrupted or unintelligible."],
         ["VIC help/list output is incomplete", "Read -help and -slots replies as they arrive. Long output can overrun the VIC receive buffer if BASIC cannot keep up; USB is useful for inspection."],
     ], [126, WIDTH - 126], size=9.2, padding=5)
-    g.start("D / Technical", "Audio outputs and compatibility", "The GPIO signal is available on every supported build; the Audio-Kit codec is optional.")
-    g.h2("Audio and compatibility notes")
-    g.para("The original ESP32 build detects an ES8388 Audio-Kit and also drives GPIO22. C3, S2 and S3 builds drive GPIO4. "
-           "The PWM signal is 8-bit at a 156.25 kHz carrier and needs the filter and external amplifier below. Never connect a speaker directly to GPIO. "
-           "Use an ES8388 Audio-Kit with the documented layout, not an AC101 board or "
-           "bare DevKit. Internal codec pins are SCL32, SDA33, MCLK0, BCLK27, LRCLK25, "
-           "data26 and amplifier-enable21. No rewiring of those internal connections is "
-           "needed. The voice is an SC-01 approximation, with inherited English spelling "
-           "rules; it is not a ROM-exact Type 'n Talk or the original VIC-Voder voice.", size=8.8)
-    g.h2("Sources and version")
-    g.para("Firmware reference: this project's README, include/config.h, src/main.cpp, "
-           "src/vic_serial.cpp, src/serial_commands.cpp and phrase-bank commands; Wizard labels from "
-           "tools/data/wizard_of_wor.json. The diagrams are redrawn for this guide. "
-           "The divider and GPIO mapping are the documented VVVC interface. "
-           "Document revision: <b>2026-09-24, revision 3, review draft</b>.", size=9.1)
-    g.h2("GPIO PWM filter")
-    g.para("Use a high-impedance amplifier input (47 kOhm or greater). Start with low volume. The 1 kOhm / 22 nF and 4.7 kOhm / 4.7 nF stages attenuate the carrier; the 1 uF film capacitor removes the 50% idle DC level:")
+    g.start("D / Reference", "GPIO audio output", "Use this connection with ESP32 boards that do not have the Audio-Kit audio codec.")
+    g.para("The Audio-Kit's speaker and headphone outputs need no extra filter. On other supported boards, the speech signal is also available as PWM on GPIO22 for the original ESP32, or GPIO4 for ESP32-C3, S2 and S3. Connect it to an amplifier through this filter. Never connect a speaker directly to a GPIO pin.")
+    g.h2("Connect to an amplifier")
+    g.para("Use an amplifier input impedance of 47 kOhm or greater. Start with low volume. The capacitors reduce the PWM carrier; the 1 uF film capacitor blocks DC:")
     g.code("PWM GPIO -- 1k --+-- 4.7k --+-- 1uF film -- amplifier input\n"
             "                |         |\n                22nF      4.7nF\n"
             "                |         |\nGND -------------+---------+-------------- amplifier ground", size=9.2)
@@ -589,11 +562,7 @@ def build():
            '<link href="https://www.vic-20.it/wp-content/uploads/2021/01/VIC20PrgRefGuide11.txt" color="#087E86">Read the transcribed manual</link>.<br/>'
            '[3] Espressif, <b>ESP32 Series Datasheet</b>, DC input characteristics. '
            '<link href="https://documentation.espressif.com/esp32_datasheet_en.html" color="#087E86">Read the manufacturer datasheet</link>.<br/>'
-           'Board family: <link href="https://github.com/Ai-Thinker-Open/ESP32-A1S-AudioKit" color="#087E86">Ai-Thinker Audio-Kit documentation</link>. '
-           'Code and third-party provenance: THIRD_PARTY.md in the project.', size=8.1, leading=10.2)
-    g.box("Release gate", "The revised shared commands have passed host tests. Earlier "
-          "audio and USB functions were tested on the board. Upload this revision and "
-          "verify the VIC link, connector orientation and BASIC examples before release.", warning=True)
+           'Board family: <link href="https://github.com/Ai-Thinker-Open/ESP32-A1S-AudioKit" color="#087E86">Ai-Thinker Audio-Kit documentation</link>.', size=8.1, leading=10.2)
 
     catalog = json.loads((ROOT / "tools/data/wizard_of_wor.json").read_text(encoding="utf-8"))["phrases"]
     for start, end in ((1, 38), (39, 75)):
