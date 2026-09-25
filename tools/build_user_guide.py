@@ -560,6 +560,7 @@ def build():
         ["Cannot open COM port", "Close other terminals, loaders or browser serial sessions. Use a USB data cable and the correct USB-to-UART port."],
         ["Learn failed / line too long", "Keep the whole USB line within 253 bytes. A slot allows 256 phones. Check the format word and wait for each reply."],
         ["VIC fails, USB works", "Use pages 6-9: ground, divider, M/B/C, RX/TX directions, voltage levels, and matching baud rates."],
+        ["Scott Adams on Mega-Cart", "After loading the game from the Mega-Cart menu, hold F1 while pressing the Mega-Cart reset button. Then enter SYS32592 and press RETURN. This initializes the VIC's KERNAL serial routines; without it, speech output can be corrupted or unintelligible."],
         ["VIC help/list output is incomplete", "Read -help and -slots replies as they arrive. Long output can overrun the VIC receive buffer if BASIC cannot keep up; USB is useful for inspection."],
     ], [126, WIDTH - 126], size=9.2, padding=5)
     g.start("D / Technical", "Audio outputs and compatibility", "The GPIO signal is available on every supported build; the Audio-Kit codec is optional.")
